@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  caption: MyString
+  link: MyString
+  credits: MyString
+  type: 
+  order: 1
+  project: one
+
+two:
+  caption: MyString
+  link: MyString
+  credits: MyString
+  type: 
+  order: 1
+  project: two

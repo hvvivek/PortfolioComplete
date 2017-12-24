@@ -1,0 +1,125 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :project_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thumb_img %>
+    <%= form.text_field :thumb_img, id: :project_thumb_img %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thumb_vid %>
+    <%= form.text_field :thumb_vid, id: :project_thumb_vid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :short_desc %>
+    <%= form.text_area :short_desc, id: :project_short_desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :project_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :period %>
+    <%= form.text_field :period, id: :project_period %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :project_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :long_desc %>
+    <%= form.text_area :long_desc, id: :project_long_desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recognition %>
+    <%= form.text_area :recognition, id: :project_recognition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :role %>
+    <%= form.text_area :role, id: :project_role %>
+  </div>
+
+  <div class="field">
+    <%= form.label :views %>
+    <%= form.number_field :views, id: :project_views %>
+  </div>
+
+ <%= form.fields_for :collaborators do |builder| %>
+    <fieldset>
+      <%= builder.label :name, "Name" %>
+      <%= builder.text_field :name, id: :collaborator_name %>
+      <%= builder.label :link, "Link" %>
+      <%= builder.text_field :link , id: :collaborator_link%>
+      <%= builder.label :contact, "Contact" %>
+      <%= builder.text_field :contact , id: :collaborator_contact%>
+      <%= builder.hidden_field :_destroy %>
+      <%= link_to "Remove", "#", class: "remove_fields" %>
+    </fieldset>
+  <% end %>
+  <%= link_to_add_collaborators "Add Collaborator", form, :collaborators %></br>
+
+ <%= form.fields_for :instructors do |builder| %>
+    <fieldset>
+      <%= builder.label :name, "Name" %>
+      <%= builder.text_field :name, id: :instructors_name %>
+      <%= builder.label :link, "Link" %>
+      <%= builder.text_field :link , id: :instructors_link%>
+      <%= builder.label :contact, "Contact" %>
+      <%= builder.text_field :contact , id: :instructors_contact%>
+      <%= builder.hidden_field :_destroy %>
+      <%= link_to "Remove", "#", class: "remove_fields" %>
+    </fieldset>
+  <% end %>
+  <%= link_to_add_collaborators "Add Instructor", form, :instructors %>
+
+ <%= form.fields_for :media do |builder| %>
+  <fieldset>
+      <%= builder.label :caption, "Caption" %>
+      <%= builder.text_field :caption %>
+      <%= builder.label :link, "Link" %>
+      <%= builder.text_field :link %>
+      <%= builder.label :credits, "Credits" %>
+      <%= builder.text_field :credits %>
+      <%= builder.label :mediatype, "Type" %>
+      <%= builder.text_field :mediatype %>
+      <%= builder.label :order, "Order" %>
+      <%= builder.text_field :order %>
+      <%= builder.hidden_field :_destroy %>
+      <%= link_to "Remove", "#", class: "remove_fields" %>
+  </fieldset>
+<% end %>
+<%= link_to_add_collaborators "Add Media", form, :media %>
+
+
+
+<div class="field">
+  <%= form.label :tag_list, "Tags (separated by commas)" %><br />
+  <%= form.text_field :tag_list %>
+</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

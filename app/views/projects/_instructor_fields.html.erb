@@ -1,0 +1,11 @@
+<fieldset>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+    <%= f.label :link, "Link" %>
+    <%= f.text_field :link %>
+    <%= f.label :contact, "Contact" %>
+    <%= f.text_field :contact %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to "Remove", "#", class: "remove_instructor" %>
+
+</fieldset>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  thumb_img: MyString
+  thumb_vid: MyString
+  short_desc: MyText
+  location: MyString
+  period: MyString
+  date: 2017-12-23
+  long_desc: MyText
+  recognition: MyText
+  role: MyText
+  views: 1
+
+two:
+  title: MyString
+  thumb_img: MyString
+  thumb_vid: MyString
+  short_desc: MyText
+  location: MyString
+  period: MyString
+  date: 2017-12-23
+  long_desc: MyText
+  recognition: MyText
+  role: MyText
+  views: 1

@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Thumb img:</strong>
+
+  <img src='<%= @project.thumb_img %>' height='400' width='400'>
+</p>
+
+<p>
+  <strong>Thumb vid:</strong>
+  <video class="vid-card"  width="370" height="370" target='img-1' toggle="vid-1" autoplay>
+      <source src="<%= @project.thumb_vid %>" type="video/mp4" autoplay>
+      Your browser does not support HTML5 video.
+  </video>
+  
+</p>
+
+<p>
+  <strong>Short desc:</strong>
+  <%= @project.short_desc %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @project.location %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @project.period %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @project.date %>
+</p>
+
+<p>
+  <strong>Long desc:</strong>
+  <%= @project.long_desc %>
+</p>
+
+<p>
+  <strong>Recognition:</strong>
+  <%= @project.recognition %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @project.role %>
+</p>
+
+<% if !@project.collaborators.nil? %>
+<% for collaborator in @project.collaborators %>
+<p>
+  <strong>Collaborator:</strong>
+  <%= collaborator.name %>
+</p>
+<% end %>
+<% end %>
+
+
+<% if !@project.instructors.nil? %>
+<% for instructor in @project.instructors %>
+<p>
+  <strong>Instructor:</strong>
+  <%= instructor.name %>
+</p>
+<% end %>
+<% end %>
+
+<% if !@media.nil? %>
+<% for medium in @media %>
+  <% if medium.mediatype == "Image" %>
+    <img src='<%= medium.link %>'>
+  <% end %>
+
+  <% if medium.mediatype == "Video" %>
+  <video class="vid-card"  width="370" height="370" target='img-1' toggle="vid-1" autoplay>
+      <source src="<%= medium.link %>" type="video/mp4" autoplay>
+      Your browser does not support HTML5 video.
+  </video>
+  <% end %>
+<% end %>
+<% end %>
+
+
+<p>
+  <strong>Views:</strong>
+  <%= @project.views %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
