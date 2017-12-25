@@ -1,11 +1,97 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Projects</h1>
-<div id="tag_cloud">
+<div class="wrapper">
+      
+      <div id="tag_cloud">
   <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
 </div>
+
+      <!-- Sidebar Start -->
+      <nav id="sidebar">
+        <div class="sidebar-content">
+          <div class="sidebar-header">
+            <p>Vivek HV</p>
+          </div>
+
+          <ul class="sidebar-menu">
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <nav id="sidebar-mobile" class='col-12'>
+        <div class="sidebar-content">
+          <div class="sidebar-header">
+            <p>Vivek HV</p>
+
+            <div id="tag_cloud">
+              <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+                <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+              <% end %>
+            </div>
+          </div>
+
+
+          
+          <ul class="sidebar-menu">
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Sidebar End -->
+
+      <!-- Content Start -->
+      <div class="content" id="style-3">
+        <div class="row1">
+
+    <% @projects.each_with_index do |project, index| %>
+
+          <div class="card">
+            <!-- <p class="side-text">Graduate School of Design / Harvard University / Fall 2017</p> -->
+            <div class="wrapper-rhs">
+              <div class="img-container">
+                <img class="img-card" src="<%= project.thumb_img %>" target='vid-<%= index %>' toggle="img-<%= index %>">
+                <video class="vid-card"  width="400" height="400" target='img-<%= index %>' toggle="vid-<%= index %>"   muted loop>
+                    <source src="<%= project.thumb_vid %>" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+              </div>
+
+              <div class="text-wrapper">
+                <p class="title"><%= link_to project.title, project %></p>
+                <!-- <p class="sub-text-1">#productdesign #spatialdesign #vr #creativity #productdesign #spatialdesign #vr</p> -->
+              </div>
+            </div>
+          </div>
+<!--
+        <td><%#= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%#= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr> -->
+    <% end %>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <!-- Content End -->
+
+    </div>
+
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Projects</h1>
+
+
+
+
+
 <table>
   <thead>
     <tr>
