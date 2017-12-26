@@ -1,9 +1,9 @@
 class Project < ApplicationRecord
-    has_many :collaborators, inverse_of: :project
-    has_many :instructors, inverse_of: :project
-    has_many :media, inverse_of: :project
-    has_many :taggings
-    has_many :tags, through: :taggings
+    has_many :collaborators, inverse_of: :project, dependent: :destroy
+    has_many :instructors, inverse_of: :project, dependent: :destroy
+    has_many :media, inverse_of: :project, dependent: :destroy
+    has_many :taggings, dependent: :destroy
+    has_many :tags, through: :taggings, dependent: :destroy
 
     accepts_nested_attributes_for :collaborators, allow_destroy: true
     accepts_nested_attributes_for :instructors, allow_destroy: true

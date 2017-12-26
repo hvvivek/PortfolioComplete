@@ -52,9 +52,22 @@
  #sidebar .plus
  {
      align-self: start;
+     justify-self: center;
  }
  
+ .plus
+ {
+    justify-self: center;
+    display: inline-block;
+    margin: 1rem;
+ }
  
+ .icons
+ {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
  
  /* Testing */
  .card
