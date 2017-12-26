@@ -14,7 +14,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap.min
 //= require tinymce
 //= require_tree .
 window.mobilecheck = function() {
