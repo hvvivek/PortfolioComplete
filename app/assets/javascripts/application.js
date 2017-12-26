@@ -110,6 +110,7 @@ var clickFunctionVideo = function(e) {
 }
 
 $(document).on('turbolinks:load', function () {
+    console.log("Inside")
     numTags = $('#tag_cloud').children().length;
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
