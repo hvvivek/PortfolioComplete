@@ -31,7 +31,6 @@ var prevTag;
 var changeToNext = function()
 {
     var e = $('#tag_cloud').children().eq( Math.floor(Math.random() * numTags))
-    console.log("Next Tag: " + e[0])
     
     if(prevTag)
     {
@@ -108,6 +107,7 @@ var clickFunctionVideo = function(e) {
     $(currentVideo).css("display", "none");
     $( ".img-card[toggle='" + $(currentVideo).attr('target') + "']" ).css("display", "block");  
 }
+console.log("Outside")
 
 $(document).on('turbolinks:load', function () {
     console.log("Inside")
