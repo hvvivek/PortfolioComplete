@@ -48,7 +48,7 @@
 
   <div class="field">
     <%= form.label :long_desc %>
-    <%= form.text_area :long_desc, id: :project_long_desc %>
+    <%= form.text_area :long_desc, id: :project_long_desc, :class => "tinymce" %>
   </div>
 
   <div class="field">
@@ -106,6 +106,10 @@
       <%= builder.text_field :mediatype %>
       <%= builder.label :order, "Order" %>
       <%= builder.text_field :order %>
+      <%= builder.label :aspect, "Aspect Ratio" %>
+      <%= builder.number_field :aspect %>
+      <%= builder.label :autoplay, "Autoplay" %>
+      <%= builder.number_field :autoplay %>
       <%= builder.hidden_field :_destroy %>
       <%= link_to "Remove", "#", class: "remove_fields" %>
   </fieldset>

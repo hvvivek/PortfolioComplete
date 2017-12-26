@@ -7,7 +7,7 @@
         
 
           <div class="sidebar-header">
-            <p><%= link_to "Vivek HV", root_path %></p>
+            <p>Vivek HV</p>
           </div>
           <div id="tag_cloud">
             <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
@@ -29,8 +29,8 @@
 
             <div id="tag_cloud">
               <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
-                <%#= link_to tag.name, tag_path(tag.name), class: css_class %>
-                <%= link_to "#" + tag.name, tag_path(tag.name), class: "tags" %>
+                <%# <%= link_to tag.name, tag_path(tag.name), class: css_class %> %>
+                <%= link_to tag.name, tag_path(tag.name) %>
               <% end %>
             </div>
           </div>
@@ -63,11 +63,7 @@
 
               <div class="text-wrapper">
                 <p class="title"><%= link_to project.title, project %></p>
-                <p class="project-tags">
-                    <% project.tags.each_with_index do |tag, index| %>
-                      <%= link_to '#' + tag.name, tag_path(tag.name) %>
-                    <% end %>
-                </p>
+                <!-- <p class="sub-text-1">#productdesign #spatialdesign #vr #creativity #productdesign #spatialdesign #vr</p> -->
               </div>
             </div>
           </div>

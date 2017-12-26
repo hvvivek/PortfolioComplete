@@ -1,0 +1,54 @@
+<div class="wrapper">
+      <!-- Sidebar Start -->
+      <nav id="sidebar">
+
+
+        <div class="sidebar-content">
+        
+
+          <div class="sidebar-header">
+            <p><%= link_to "Vivek HV", root_path %></p>
+          </div>
+          <div id="tag_cloud">
+            <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+              <%#= link_to tag.name, tag_path(tag.name), class: css_class %>
+              <%= link_to "#" + tag.name, tag_path(tag.name), class: "tags" %>
+            <% end %>
+          </div>
+          <ul class="sidebar-menu">
+            <li><%= link_to "Contact", controller: "projects", action: "contact" %></li>
+          </ul>
+
+        </div>
+      </nav>
+
+      <nav id="sidebar-mobile" class='col-12'>
+        <div class="sidebar-content">
+          <div class="sidebar-header">
+            <p>Vivek HV</p>
+
+            <div id="tag_cloud">
+              <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+                <%# <%= link_to tag.name, tag_path(tag.name), class: css_class %> %>
+                <%= link_to tag.name, tag_path(tag.name) %>
+              <% end %>
+            </div>
+          </div>
+
+
+          
+          <ul class="sidebar-menu">
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Sidebar End -->
+
+      <!-- Content Start -->
+      <div class="content" id="style-3">
+        <div class="row1">
+        </div>
+      </div>
+      <!-- Content End -->
+
+    </div>

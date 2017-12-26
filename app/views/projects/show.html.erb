@@ -1,99 +1,139 @@
-<p id="notice"><%= notice %></p>
+<div id="project" class="wrapper">
+      
+      <!-- Sidebar Start -->
+      <nav id="sidebar">
+        <div class="sidebar-content">
+          <a href=<%= projects_path %>>
+          <div class="back-arrow">
+              <img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/images/back.jpg" width="75" >
+          </div>
+          </a>
+          <div class="sidebar-header">
+            <p><%= link_to "Vivek HV", root_path %></p>
+          </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+          <ul class="sidebar-menu">
+            <li><%= link_to "Contact", controller: "projects", action: "contact" %></li>
+          </ul>
+        </div>
+      </nav>
 
-<p>
-  <strong>Thumb img:</strong>
+      <nav id="sidebar-mobile" class='col-12'>
+        <div class="sidebar-content">
+          <div class="sidebar-header">
+            <p>Vivek HV</p>
+          </div>
 
-  <img src='<%= @project.thumb_img %>' height='400' width='400'>
-</p>
+          <ul class="sidebar-menu">
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Sidebar End -->
 
-<p>
-  <strong>Thumb vid:</strong>
-  <video class="vid-card"  width="370" height="370" target='img-1' toggle="vid-1" autoplay>
-      <source src="<%= @project.thumb_vid %>" type="video/mp4" autoplay>
-      Your browser does not support HTML5 video.
-  </video>
-  
-</p>
+      <!-- Content Start -->
+      <div class="content" id="style-3">
+        <div class="row1">
 
-<p>
-  <strong>Short desc:</strong>
-  <%= @project.short_desc %>
-</p>
+            <div class="card">
+                <!-- <p class="side-text">01 Atelier</p> -->
+                <div class="wrapper-rhs">
+                  <div class="img-container">
+                    <img class="img-card" src='<%= @project.thumb_img %>' target='vid-1' toggle="img-1">
+                    <video class="vid-card"  width="400" height="400" target='img-1' toggle="vid-1"  loop>
+                        <source src="<%= @project.thumb_vid %>" type="video/mp4" autoplay>
+                        Your browser does not support HTML5 video.
+                    </video>
+                  </div>
+    
+                  <div class="text-wrapper">
+                    <p class="sub-text-1"><%= @project.period %> <br> <%= @project.location %></p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @project.location %>
-</p>
+                    
+                    <% if !@project.instructors.nil? %>
+                      <p class="sub-text-1">Instructor(s)/Professor(s):<br> 
+                      <% @project.instructors.each_with_index do |instructor, index| %>
+                        <% if index > 0 %>
+                        , 
+                        <% end %>
+                        <a href="<%= instructor.link %>"><%= instructor.name %></a>
+                      <% end %>
+                      </p>
+                    <% end %>
 
-<p>
-  <strong>Period:</strong>
-  <%= @project.period %>
-</p>
+                    <% if !@project.collaborators.nil? %>
+                      <p class="sub-text-1">Collaborator(s):<br> 
+                      <% @project.collaborators.each_with_index do |collaborator, index| %>
+                        <% if index > 0 %>
+                        , 
+                        <% end %>
+                        <a href="<%= collaborator.link %>"><%= collaborator.name %></a>
+                      <% end %>
+                      </p>
+                    <% end %>    
+                  </div>
+                </div>
+              </div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @project.date %>
-</p>
+              <div class="card2">
+                <!-- <p class="side-text">01 Atelier</p> -->
+                <div class="wrapper-rhs">
+                  <div class="text-wrapper">
+                    <h3 class="title"><%= @project.title %></h3>
+                    <p class="short-desc"><%= @project.short_desc %></p>
+                    <div class="long-desc"><%= @project.long_desc.html_safe %></div>
+                </div>
+                </div>
+              </div>
 
-<p>
-  <strong>Long desc:</strong>
-  <%= @project.long_desc %>
-</p>
+              <% if !@project.media.nil? %>
+                <% count = 0 %>
+                <% @project.media.each_with_index do |medium, index| %>
 
-<p>
-  <strong>Recognition:</strong>
-  <%= @project.recognition %>
-</p>
+                  <% if medium.aspect == 0 %>
+                      <% if count == 0 %>
+                        <div class="card2">
+                        <% if medium.mediatype == 'Image' %>
+                          <img class="img-card-extra" src="<%= medium.link %>" >
+                        <% end %>
+                        <% if medium.mediatype == 'Video' %>
+                          <video width="480" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
+                              <source src="<%= medium.link %>" type="video/mp4" >
+                              Your browser does not support HTML5 video.
+                          </video>
+                        <% end %>
+                        <% count += 1 %>
+                      <% else %>
+                        <% if medium.mediatype == 'Image' %>
+                          <img class="img-card-extra" src="<%= medium.link %>" >
+                        <% end %>
+                        <% if medium.mediatype == 'Video' %>
+                          <video width="480" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
+                              <source src="<%= medium.link %>" type="video/mp4" >
+                              Your browser does not support HTML5 video.
+                          </video>
+                        <% end %>
+                        </div>
+                        <% count = 0 %>
+                      <% end %>
+                  <% end %>
 
-<p>
-  <strong>Role:</strong>
-  <%= @project.role %>
-</p>
+                  <% if medium.aspect == 1 %>
+                    <div class="card3">
+                      <% if medium.mediatype == 'Image' %>
+                        <img class="img-card-extra2" src="<%= medium.link %>" >
+                      <% end %>
+                      <% if medium.mediatype == 'Video' %>
+                        <video width="570" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
+                            <source src="<%= medium.link %>" type="video/mp4" >
+                            Your browser does not support HTML5 video.
+                        </video>
+                      <% end %>
+                    </div>
+                  <% end %>
 
-<% if !@project.collaborators.nil? %>
-<% for collaborator in @project.collaborators %>
-<p>
-  <strong>Collaborator:</strong>
-  <%= collaborator.name %>
-</p>
-<% end %>
-<% end %>
-
-
-<% if !@project.instructors.nil? %>
-<% for instructor in @project.instructors %>
-<p>
-  <strong>Instructor:</strong>
-  <%= instructor.name %>
-</p>
-<% end %>
-<% end %>
-
-<% if !@media.nil? %>
-<% for medium in @media %>
-  <% if medium.mediatype == "Image" %>
-    <img src='<%= medium.link %>'>
-  <% end %>
-
-  <% if medium.mediatype == "Video" %>
-  <video class="vid-card"  width="370" height="370" target='img-1' toggle="vid-1" autoplay>
-      <source src="<%= medium.link %>" type="video/mp4" autoplay>
-      Your browser does not support HTML5 video.
-  </video>
-  <% end %>
-<% end %>
-<% end %>
-
-
-<p>
-  <strong>Views:</strong>
-  <%= @project.views %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+                <% end %>
+              <% end %>  
+        </div>
+      </div>
+      <!-- Content End -->

@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap.min
+//= require tinymce
 //= require_tree .
 window.mobilecheck = function() {
     var check = false;
@@ -25,6 +26,50 @@ var timeoutId;
 var currentImage;
 var currentVideo;
 var currentState;
+var numTags;
+var prevTag;
+var changeToNext = function()
+{
+    var e = $('#tag_cloud').children().eq( Math.floor(Math.random() * numTags))
+    console.log("Next Tag: " + e[0])
+    
+    if(prevTag)
+    {
+        if(prevTag[0] != e[0])
+        {
+        // prevTag.css("display", "none")
+        prevTag.animate({top: "-2em"}, 600, function() {
+            // Animation complete.
+            
+            // e.slideDown('slow')
+            // prevTag.css("display", "none");
+
+          });
+          e.css("display", "block")
+          e.animate({top: "0em"}, 800, function(){
+            prevTag.css("top", "2em");
+
+            prevTag.css("display", "none");
+            prevTag = e;}
+        )
+    }
+    else
+    {
+        changeToNext()
+    }
+
+
+    }
+    else
+    {
+        e.css("display", "block")
+        e.animate({top: "0em"}, 800, function(){    prevTag = e;
+        })
+        // e.slideDown('slow')
+    }
+    
+    // e.css("display", "block")
+}
 
 var hoverFunctionStart = function(e) {
     if (!timeoutId) {
@@ -65,7 +110,7 @@ var clickFunctionVideo = function(e) {
 }
 
 $(document).on('turbolinks:load', function () {
-
+    numTags = $('#tag_cloud').children().length;
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
     });
@@ -131,7 +176,12 @@ $(document).on('turbolinks:load', function () {
                 }
             });
         }
+        changeToNext()
+
 });
+
+setInterval(changeToNext, 3000)
+
 
 
 
