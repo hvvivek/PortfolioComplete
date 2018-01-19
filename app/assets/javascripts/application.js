@@ -70,13 +70,14 @@ var changeToNext = function()
 }
 
 var hoverFunctionStart = function(e) {
+    console.log("Identifyying changes");
     if (!timeoutId) {
         currentImage = this;
 
         timeoutId = window.setTimeout(function() {
             $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" )[0].play()  
             timeoutId = null; // EDIT: added this line
-            $(currentImage).css("display", "none");
+            $(currentImage).find(".img-card").css("display", "none");
             $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" ).css("display", "block");  
             // console.log($(currentImage).attr('toggle'));
             // $('.vid-card').css("display", "block");  
@@ -115,15 +116,24 @@ $(document).on('turbolinks:load', function () {
         $('#sidebar').toggleClass('active');
     });
     
-    $('.vid-card').on('mouseout', function () {
-        $(this).css("display", "none");
-        $(this)[0].pause();
-        $(this)[0].currentTime = 0;
+    // $('.vid-card').on('mouseout', function () {
+    //     $(this).css("display", "none");
+    //     $(this)[0].pause();
+    //     $(this)[0].currentTime = 0;
+    //     $('.img-card').css("display", "block");    
+    // });
+    $('.card').off('mouseleave');
+    $('.card').on('mouseleave', function () {
+        console.log("Stopping");
+        $(this).find('.vid-card').css("display", "none");
+        $(this).find('.vid-card')[0].pause();
+        $(this).find('.vid-card')[0].currentTime = 0;
         $('.img-card').css("display", "block");    
     });
 
 
-    $(".img-card").hover(hoverFunctionStart, hoverFunctionEnd);
+    // $(".img-card").hover(hoverFunctionStart, hoverFunctionEnd);
+    $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
 
         // $(".content").on('mousewheel', function(event, delta) {
         //     // console.log(event.originalEvent.deltaY)
@@ -147,7 +157,7 @@ $(document).on('turbolinks:load', function () {
             if(mq.matches ) {
                 // the width of browser is more then 700px
                 console.log("More than 700px")
-                $(".img-card").hover(hoverFunctionStart, hoverFunctionEnd);
+                $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
             
                 
             } else {
@@ -171,12 +181,12 @@ $(document).on('turbolinks:load', function () {
                 } else {
                     // the width of browser is less then 700px
                     console.log("Changed to More than 700px")
-                    $(".img-card").hover(hoverFunctionStart, hoverFunctionEnd);
+                    $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
             
                 }
             });
         }
-        changeToNext()
+        // changeToNext()
 
 });
 

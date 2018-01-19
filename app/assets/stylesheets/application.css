@@ -131,7 +131,7 @@
        transition:1s;
    }
  
-   .img-card:hover
+   .wrapper-rhs:hover .img-card
    {
        filter: grayscale(0%);
        /* opacity: 0.5; */
