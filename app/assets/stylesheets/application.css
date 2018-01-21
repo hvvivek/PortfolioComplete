@@ -52,22 +52,9 @@
  #sidebar .plus
  {
      align-self: start;
-     justify-self: center;
  }
  
- .plus
- {
-    justify-self: center;
-    display: inline-block;
-    margin: 1rem;
- }
  
- .icons
- {
-     display: flex;
-     align-items: center;
-     justify-content: center;
- }
  
  /* Testing */
  .card
@@ -131,7 +118,7 @@
        transition:1s;
    }
  
-   .wrapper-rhs:hover .img-card
+   .img-card:hover
    {
        filter: grayscale(0%);
        /* opacity: 0.5; */
@@ -154,9 +141,14 @@
  
    }
  
+   .card2 .title
+   {
+    font-family: 'Lora', serif;
+    font-size: 3em;
+   }
    .title
    {
-       font-size: 1em;
+       
        font-weight: 600;
        margin-top: 10px;
        margin-bottom: 0px;
