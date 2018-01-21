@@ -71,7 +71,10 @@
     margin-top: 10px;
     width: 470px;
     float: left;
-    text-align: justify;
+    font-size: 0.9em;
+    // text-align: justify;
+    // font-family: 'Lora', serif;
+
 }
 
 #project .short-desc
@@ -79,8 +82,12 @@
     margin-top: 10px;
     width: 470px;
     float: left;
+    // font-size: 1.2em;
+    // font-weight: lighter;
+    font-family: 'Lora', serif;
+    // font-style: italic;
     // text-align: justify;
-    font-weight: bold;
+    // font-weight: bold;
 }
 
 

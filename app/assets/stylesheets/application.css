@@ -141,9 +141,14 @@
  
    }
  
+   .card2 .title
+   {
+    font-family: 'Lora', serif;
+    font-size: 3em;
+   }
    .title
    {
-       font-size: 1em;
+       
        font-weight: 600;
        margin-top: 10px;
        margin-bottom: 0px;
