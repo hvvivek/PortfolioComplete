@@ -108,11 +108,6 @@ var clickFunctionVideo = function(e) {
     $( ".img-card[toggle='" + $(currentVideo).attr('target') + "']" ).css("display", "block");  
 }
 console.log("Outside")
-<<<<<<< HEAD
-
-$(document).on('turbolinks:load', function () {
-    console.log("Inside")
-=======
 
 
 function nextInDOM(_selector, _subject) {
@@ -232,7 +227,6 @@ $(document).on('turbolinks:load', function () {
 
 
     // console.log("Inside")
->>>>>>> master
     numTags = $('#tag_cloud').children().length;
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
