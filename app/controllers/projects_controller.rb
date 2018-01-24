@@ -28,7 +28,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @media = @project.media
   end
 
   # GET /projects/new
@@ -107,6 +106,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:tag_list, :title, :thumb_img, :thumb_vid, :short_desc, :location, :period, :date, :long_desc, :recognition, :role, :views, collaborators_attributes: [:id, :name, :link, :contact, :project_id, :created_at, :updated_at, :_destroy], instructors_attributes: [:id, :name, :link, :contact, :project_id, :created_at, :updated_at, :_destroy], media_attributes: [:id, :caption, :link, :credits, :mediatype, :order, :aspect, :autoplay,  :project_id, :created_at, :updated_at, :_destroy])
+      params.require(:project).permit(:tag_list, :title, :thumb_img, :thumb_vid, :short_desc, :location, :period, :date, :long_desc, :recognition, :role, :views, collaborators_attributes: [:id, :name, :link, :contact, :project_id, :created_at, :updated_at, :_destroy], instructors_attributes: [:id, :name, :link, :contact, :project_id, :created_at, :updated_at, :_destroy], media_attributes: [:id, :caption, :link, :credits, :mediatype, :order, :aspect, :autoplay, :long_desc,  :project_id, :created_at, :updated_at, :_destroy])
     end
 end

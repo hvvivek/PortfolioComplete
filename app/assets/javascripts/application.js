@@ -108,9 +108,131 @@ var clickFunctionVideo = function(e) {
     $( ".img-card[toggle='" + $(currentVideo).attr('target') + "']" ).css("display", "block");  
 }
 console.log("Outside")
+<<<<<<< HEAD
 
 $(document).on('turbolinks:load', function () {
     console.log("Inside")
+=======
+
+
+function nextInDOM(_selector, _subject) {
+    var next = getNext(_subject);
+    while(next.length != 0) {
+        var found = searchFor(_selector, next);
+        if(found != null) return found;
+        next = getNext(next);
+    }
+    return null;
+}
+function getNext(_subject) {
+    if(_subject.next().length > 0) return _subject.next();
+    return getNext(_subject.parent());
+}
+function searchFor(_selector, _subject) {
+    if(_subject.is(_selector)) return _subject;
+    else {
+        var found = null;
+        _subject.children().each(function() {
+            found = searchFor(_selector, $(this));
+            if(found != null) return false;
+        });
+        return found;
+    }
+    return null; // will/should never get here
+}
+
+
+
+function format_media_type_inputs(e)
+{
+    var media_type = e.value;
+
+        switch(media_type) {
+            case "Video":
+                console.log('Video Chosen')
+                $($(e).parent().parent().parent()[0]).find('.vid').css({'display':'block'})
+                $($(e).parent().parent().parent()[0]).find('.no-vid').css({'display':'none'})
+                var vid_link = $($(e).parent().parent().parent()[0]).find('.src-link')[0].value
+                var html = '<video class="col-10 offset-1" controls><source src="'+ vid_link+'" type="video/mp4">Your browser does not support the video tag.</video>'
+                $($(e).parent().parent().parent()[0]).find('.preview')[0].innerHTML = html;
+
+                break;
+            case "Image":
+                $($(e).parent().parent().parent()[0]).find('.img').css({'display':'block'})
+                $($(e).parent().parent().parent()[0]).find('.no-img').css({'display':'none'})
+                var img_link = $($(e).parent().parent().parent()[0]).find('.src-link')[0].value
+                var html = '<img class="col-10 offset-1"  src="' + img_link +'" onerror="this.onerror=null;this.src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/images/icons/alt.jpg"/>'
+                console.log($($(e).parent().parent().parent()[0]).find('.preview')[0])
+                $($(e).parent().parent().parent()[0]).find('.preview')[0].innerHTML = html;
+                break;
+            case "Text":
+                $($(e).parent().parent().parent()[0]).find('.text').css({'display':'block'})
+                $($(e).parent().parent().parent()[0]).find('.no-text').css({'display':'none'})
+                break;
+            default:
+        }
+
+}
+
+function load_media(e)
+{
+    console.log($($(e).parent().parent()[0]).find('.mediatype_select')[0])
+    format_media_type_inputs($($(e).parent().parent()[0]).find('.mediatype_select')[0]);
+}
+
+function load_tag_field(e)
+{
+    var html = '';
+    for(var i=0; i<$(e)[0].value.split(',').length; i++)
+    {
+        if($(e)[0].value.split(',')[i].length>0)
+        {
+            html += '<div class="tag-item">'+ $(e)[0].value.split(',')[i] +'</div>'
+        }
+    }
+    $('#tag-list')[0].innerHTML = html;
+}
+
+$(document).on('turbolinks:load', function () {
+
+    if($('#tag-field').length > 0)
+    {
+        load_tag_field($('#tag-field')[0])
+    }
+
+    $('#tag-field').on('input', function(){
+        load_tag_field(this)
+        // var html = '';
+        // for(var i=0; i<this.value.split(',').length; i++)
+        // {
+        //     if(this.value.split(',')[i].length>0)
+        //     {
+        //         html += '<div class="tag-item">'+ this.value.split(',')[i] +'</div>'
+        //     }
+        // }
+        // $('#tag-list')[0].innerHTML = html;
+    })
+
+    for( var i=0; i<$('.mediatype_select').length; i++)
+    {
+        format_media_type_inputs($('.mediatype_select')[i])
+    }
+
+    $('.mediatype_select').on('change', function(){
+        console.log(this.value);
+        format_media_type_inputs(this)
+        
+    })
+
+    $('.src-link').on('focusout', function(){
+        // console.log(this.value);
+        // format_media_type_inputs(this)
+        load_media(this);
+    })
+
+
+    // console.log("Inside")
+>>>>>>> master
     numTags = $('#tag_cloud').children().length;
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');

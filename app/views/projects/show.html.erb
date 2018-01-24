@@ -13,7 +13,7 @@
           </div>
 
           <ul class="sidebar-menu">
-            <li><%= link_to "Contact", controller: "projects", action: "contact" %></li>
+            <li><%= link_to "About", controller: "projects", action: "contact" %></li>
           </ul>
         </div>
       </nav>
@@ -25,7 +25,7 @@
           </div>
 
           <ul class="sidebar-menu">
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
           </ul>
         </div>
       </nav>
@@ -88,52 +88,62 @@
 
               <% if !@project.media.nil? %>
                 <% count = 0 %>
-                <% @project.media.each_with_index do |medium, index| %>
-
-                  <% if medium.aspect == 0 %>
-                      <% if count == 0 %>
-                        <div class="card2">
-                        <% if medium.mediatype == 'Image' %>
-                          <img class="img-card-extra" src="<%= medium.link %>" >
-                        <% end %>
-                        <% if medium.mediatype == 'Video' %>
-                          <video width="480" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
-                              <source src="<%= medium.link %>" type="video/mp4" >
-                              Your browser does not support HTML5 video.
-                          </video>
-                        <% end %>
-                        <% count += 1 %>
-                      <% else %>
-                        <% if medium.mediatype == 'Image' %>
-                          <img class="img-card-extra" src="<%= medium.link %>" >
-                        <% end %>
-                        <% if medium.mediatype == 'Video' %>
-                          <video width="480" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
-                              <source src="<%= medium.link %>" type="video/mp4" >
-                              Your browser does not support HTML5 video.
-                          </video>
-                        <% end %>
+                <% @project.media.order(:order).each_with_index do |medium, index| %>
+                  <% if medium.mediatype == 'Text'%>
+                    <div class="card2">
+                        <!-- <p class="side-text">01 Atelier</p> -->
+                        <div class="wrapper-rhs">
+                          <div class="text-wrapper">
+                            <div class="long-desc media-long-desc"><%= medium.long_desc.html_safe %></div>
                         </div>
-                        <% count = 0 %>
-                      <% end %>
-                  <% end %>
+                        </div>
+                      </div>
+                  <%else%>
+                    <% if medium.aspect == 0 %>
+                        <% if count == 0 %>
+                          <div class="card2">
+                          <% if medium.mediatype == 'Image' %>
+                            <img class="img-card-extra" src="<%= medium.link %>" >
+                          <% end %>
+                          <% if medium.mediatype == 'Video' %>
+                            <video width="480" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
+                                <source src="<%= medium.link %>" type="video/mp4" >
+                                Your browser does not support HTML5 video.
+                            </video>
+                          <% end %>
+                          <% count += 1 %>
+                        <% else %>
+                          <% if medium.mediatype == 'Image' %>
+                            <img class="img-card-extra" src="<%= medium.link %>" >
+                          <% end %>
+                          <% if medium.mediatype == 'Video' %>
+                            <video width="480" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
+                                <source src="<%= medium.link %>" type="video/mp4" >
+                                Your browser does not support HTML5 video.
+                            </video>
+                          <% end %>
+                          </div>
+                          <% count = 0 %>
+                        <% end %>
+                    <% end %>
 
-                  <% if medium.aspect == 1 %>
-                    <div class="card3">
-                      <% if medium.mediatype == 'Image' %>
-                        <img class="img-card-extra2" src="<%= medium.link %>" >
-                      <% end %>
-                      <% if medium.mediatype == 'Video' %>
-                        <video width="570" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
-                            <source src="<%= medium.link %>" type="video/mp4" >
-                            Your browser does not support HTML5 video.
-                        </video>
-                      <% end %>
-                    </div>
-                  <% end %>
+                    <% if medium.aspect == 1 %>
+                      <div class="card3">
+                        <% if medium.mediatype == 'Image' %>
+                          <img class="img-card-extra2" src="<%= medium.link %>" >
+                        <% end %>
+                        <% if medium.mediatype == 'Video' %>
+                          <video width="570" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
+                              <source src="<%= medium.link %>" type="video/mp4" >
+                              Your browser does not support HTML5 video.
+                          </video>
+                        <% end %>
+                      </div>
+                    <% end %>
 
+                  <% end %>
                 <% end %>
-              <% end %>  
+              <%end%>  
         </div>
       </div>
       <!-- Content End -->

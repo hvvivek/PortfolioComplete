@@ -152,3 +152,65 @@ body
 {
   opacity: 1.0;
 }
+
+.media-card
+{
+    margin-top: 1   rem;
+    padding: 1rem;
+    background-color: #eeeeee;
+}
+
+.add_fields
+{
+    text-align: center;
+    padding: 3rem;
+}
+
+.actions
+{
+    margin-top: 5rem;
+}
+
+.cancel-links
+{
+    text-align: center
+}
+
+.cancel-links a
+{
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+
+.remove_fields
+{
+    margin-top: 1rem;
+    color: white;
+}
+
+.remove_fields:visited
+{
+    color: white !important;
+}
+
+label
+{
+    font-weight: 500;
+}
+
+.tag-item
+{
+    color: black;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    float: left;
+    padding: 0.6rem;
+    margin:0.2rem;
+}
+
+.media-long-desc h4
+{
+    font-family: 'Lora', 'serif';
+    font-weight: 600;
+}
