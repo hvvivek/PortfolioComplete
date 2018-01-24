@@ -11,119 +11,182 @@
     </div>
   <% end %>
 
-  <div class="field">
+<div class="row">
+<div class="col-6">
+
+  <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :project_title %>
+    <%= form.text_field :title, id: :project_title, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :thumb_img %>
-    <%= form.text_field :thumb_img, id: :project_thumb_img %>
+    <%= form.text_field :thumb_img, id: :project_thumb_img, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :thumb_vid %>
-    <%= form.text_field :thumb_vid, id: :project_thumb_vid %>
+    <%= form.text_field :thumb_vid, id: :project_thumb_vid, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :short_desc %>
-    <%= form.text_area :short_desc, id: :project_short_desc %>
+    <%= form.text_area :short_desc, id: :project_short_desc, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location, id: :project_location %>
+    <%= form.text_field :location, id: :project_location, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :period %>
-    <%= form.text_field :period, id: :project_period %>
+    <%= form.text_field :period, id: :project_period, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date, id: :project_date %>
+    <%= form.date_select :date, id: :project_date, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :long_desc %>
-    <%= form.text_area :long_desc, id: :project_long_desc, :class => "tinymce" %>
+    <%= form.text_area :long_desc, id: :project_long_desc, :class => "tinymce" , cols: 20, rows: 10 %>
   </div>
 
-  <div class="field">
+  
+<div class="field">
     <%= form.label :recognition %>
-    <%= form.text_area :recognition, id: :project_recognition %>
+    <%= form.text_area :recognition, id: :project_recognition, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :role %>
-    <%= form.text_area :role, id: :project_role %>
+    <%= form.text_area :role, id: :project_role, :class => 'form-control' %>
   </div>
+
+  </div>
+<div class="col-6">
+
 
   <div class="field">
-    <%= form.label :views %>
-    <%= form.number_field :views, id: :project_views %>
+    <%= form.label :tag_list, "Tags (separated by commas)" %><br />
+    <%= form.text_field(:tag_list, :id => 'tag-field') %>
   </div>
 
+    <div id='tag-list' class="row"></div>
+
+<div><h4>Collaborators</h4></div>
+<div class="row align-items-center">
  <%= form.fields_for :collaborators do |builder| %>
-    <fieldset>
+    <fieldset class="col-6">
+      <div class="media-card">
       <%= builder.label :name, "Name" %>
-      <%= builder.text_field :name, id: :collaborator_name %>
+      <%= builder.text_field :name, id: :collaborator_name, :class => 'form-control' %>
       <%= builder.label :link, "Link" %>
-      <%= builder.text_field :link , id: :collaborator_link%>
+      <%= builder.text_field :link , id: :collaborator_link, :class => 'form-control' %>
       <%= builder.label :contact, "Contact" %>
-      <%= builder.text_field :contact , id: :collaborator_contact%>
+      <%= builder.text_field :contact , id: :collaborator_contact, :class => 'form-control' %>
       <%= builder.hidden_field :_destroy %>
-      <%= link_to "Remove", "#", class: "remove_fields" %>
+      <%= link_to("Remove", "#", class: "btn btn-danger remove_fields") %>
+      </div>
     </fieldset>
   <% end %>
   <%= link_to_add_collaborators "Add Collaborator", form, :collaborators %></br>
+</div>
+
+
+<h4>Instructors/Supervisors:</h4>
+<div class="row align-items-center">
 
  <%= form.fields_for :instructors do |builder| %>
-    <fieldset>
+    <fieldset class="col-6">
+      <div class="media-card">
       <%= builder.label :name, "Name" %>
-      <%= builder.text_field :name, id: :instructors_name %>
+      <%= builder.text_field :name, id: :instructors_name, :class => 'form-control' %>
       <%= builder.label :link, "Link" %>
-      <%= builder.text_field :link , id: :instructors_link%>
+      <%= builder.text_field :link , id: :instructors_link, :class => 'form-control'%>
       <%= builder.label :contact, "Contact" %>
-      <%= builder.text_field :contact , id: :instructors_contact%>
+      <%= builder.text_field :contact , id: :instructors_contact, :class => 'form-control'%>
       <%= builder.hidden_field :_destroy %>
-      <%= link_to "Remove", "#", class: "remove_fields" %>
+      <%= link_to("Remove", "#", class: "btn btn-danger remove_fields") %>
+      </div>
     </fieldset>
   <% end %>
   <%= link_to_add_collaborators "Add Instructor", form, :instructors %>
-
- <%= form.fields_for :media do |builder| %>
-  <fieldset>
-      <%= builder.label :caption, "Caption" %>
-      <%= builder.text_field :caption %>
-      <%= builder.label :link, "Link" %>
-      <%= builder.text_field :link %>
-      <%= builder.label :credits, "Credits" %>
-      <%= builder.text_field :credits %>
-      <%= builder.label :mediatype, "Type" %>
-      <%= builder.text_field :mediatype %>
-      <%= builder.label :order, "Order" %>
-      <%= builder.text_field :order %>
-      <%= builder.label :aspect, "Aspect Ratio" %>
-      <%= builder.number_field :aspect %>
-      <%= builder.label :autoplay, "Autoplay" %>
-      <%= builder.number_field :autoplay %>
-      <%= builder.hidden_field :_destroy %>
-      <%= link_to "Remove", "#", class: "remove_fields" %>
-  </fieldset>
-<% end %>
-<%= link_to_add_collaborators "Add Media", form, :media %>
-
-
-
-<div class="field">
-  <%= form.label :tag_list, "Tags (separated by commas)" %><br />
-  <%= form.text_field :tag_list %>
+</div>
 </div>
 
-  <div class="actions">
-    <%= form.submit %>
+<div class="row align-items-center">
+ <%= form.fields_for :media do |builder| %>
+  <fieldset class="col-4">
+    <div class="media-card">
+    <h3>Media:</h3>
+
+      <% mediatype_array = ['Image', 'Video', 'Text'] %>
+      <div class="row">
+        <div class="col">
+          <%= builder.label :mediatype, "Type" %>
+          <%= builder.select( :mediatype, options_for_select(mediatype_array, builder.object.mediatype),{}, {:class => 'form-control mediatype_select'}) %>
+        </div>
+        <div class="col">
+          <%= builder.label :order, "Order" %>
+          <%= builder.number_field :order , :class => 'form-control'%>
+        </div>
+      </div>
+
+      <div class="row vid img no-text">
+        <div class="col">
+          <%= builder.label :caption, "Caption" %>
+          <%= builder.text_field :caption , :class => 'form-control'%>
+        </div>
+        <div class="col">
+          <%= builder.label :credits, "Credits" %>
+          <%= builder.text_field :credits , :class => 'form-control'%>
+        </div>
+      </div>
+
+      <div class="row vid img no-text">
+        <%= builder.label :link, "Link" %>
+        <%= builder.text_field :link , :class => 'form-control  src-link'%>
+      </div>
+      
+      
+
+      <div class="row  vid img no-text">
+        <div class="col">
+          <%= builder.label :aspect, "Square Aspect Ratio?" %> : <%= builder.check_box :aspect %>
+        </div>
+
+        <div class="col vid no-img no-text">
+          <%= builder.label :autoplay, "Autoplay?" %> : <%= builder.check_box :autoplay %>
+        </div>
+      </div>
+
+      <div class="row text no-vid no-img">
+        <%= builder.label :long_desc, "Text" %>
+        <%= builder.text_area :long_desc, :class => "tinymce", cols: 20, rows: 10 %>
+      </div>
+
+      <div class='row preview img vid no-text'>
+        
+        <%# <img class='row img no-vid no-text'>
+        </img> %>
+        
+      </div>
+
+      <%= builder.hidden_field :_destroy %>
+      <%= link_to("Remove", "#", class: "btn btn-danger remove_fields") %>
+      </div>
+  </fieldset>
+<% end %>
+<%= link_to_add_collaborators("+ Add Media", form, :media) %>
+</div>
+</div>
+
+  <div class="actions container-fluid">
+    <div class="offset-2 col-8">
+      <%= form.submit( :class => "btn btn-primary btn-lg btn-block") %>
+    </div>
   </div>
 <% end %>

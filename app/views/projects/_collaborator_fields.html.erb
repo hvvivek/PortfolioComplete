@@ -1,11 +1,12 @@
-<fieldset>
+<fieldset class="col-6">
+    <div class="media-card">
     <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, id: :collaborator_name, :class => 'form-control' %>
     <%= f.label :link, "Link" %>
-    <%= f.text_field :link %>
+    <%= f.text_field :link , id: :collaborator_link, :class => 'form-control' %>
     <%= f.label :contact, "Contact" %>
-    <%= f.text_field :contact %>
+    <%= f.text_field :contact , id: :collaborator_contact, :class => 'form-control' %>
     <%= f.hidden_field :_destroy %>
-    <%= link_to "Remove", "#", class: "remove_collaborator" %>
-
+    <%= link_to("Remove", "#", class: "btn btn-danger remove_fields") %>
+    </div>
 </fieldset>

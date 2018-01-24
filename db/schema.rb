@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171225214630) do
+ActiveRecord::Schema.define(version: 20180124090527) do
 
   create_table "collaborators", force: :cascade do |t|
     t.string "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20171225214630) do
     t.datetime "updated_at", null: false
     t.integer "aspect"
     t.integer "autoplay"
+    t.text "long_desc"
     t.index ["project_id"], name: "index_media_on_project_id"
   end
 

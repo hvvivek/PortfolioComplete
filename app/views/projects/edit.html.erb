@@ -1,7 +1,14 @@
-<h1>Editing Project</h1>
+<div class="container-fluid">
+<div class="col-10 offset-1">
+<h1 class="center">Editing Project</h1>
 
 <%= render 'form', project: @project %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+<div class="container cancel-links">
+
+<%= link_to('Show', @project) %> | 
+<%= link_to('Back', projects_path) %>
+</div>
+</div>
 <%= tinymce %>
+</div>

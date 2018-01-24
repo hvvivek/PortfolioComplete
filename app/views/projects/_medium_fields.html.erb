@@ -1,18 +1,50 @@
-<fieldset>
-    <%= f.label :caption, "Caption" %>
-    <%= f.text_field :caption %>
-    <%= f.label :link, "Link" %>
-    <%= f.text_field :link %>
-    <%= f.label :credits, "Credits" %>
-    <%= f.text_field :credits %>
-    <%= f.label :mediatype, "Type" %>
-    <%= f.text_field :mediatype %>
-    <%= f.label :order, "Order" %>
-    <%= f.text_field :order %>
-    <%= f.label :aspect, "Aspect Ratio" %>
-    <%= f.number_field :aspect %>
-    <%= f.label :autoplay, "Autoplay" %>
-    <%= f.number_field :autoplay %>
-    <%= f.hidden_field :_destroy %>
-    <%= link_to "Remove", "#", class: "remove_fields" %>
+<%# <fieldset> %>
+
+<fieldset class="col-4">
+    <div class="media-card">
+    <h3>Media:</h3>
+
+      <div class="row">
+        <div class="col">
+          <%= f.label :caption, "Caption" %>
+          <%= f.text_field :caption , :class => 'form-control'%>
+        </div>
+        <div class="col">
+          <%= f.label :credits, "Credits" %>
+          <%= f.text_field :credits , :class => 'form-control'%>
+        </div>
+      </div>
+
+      <%= f.label :link, "Link" %>
+      <%= f.text_field :link , :class => 'form-control'%>
+      
+      <% mediatype_array = ['Image', 'Video', 'Text'] %>
+      <div class="row">
+        <div class="col">
+          <%= f.label :mediatype, "Type" %>
+          <%= f.select( :mediatype, options_for_select(mediatype_array, f.object.mediatype),{}, {:class => 'form-control'}) %>
+        </div>
+        <div class="col">
+          <%= f.label :order, "Order" %>
+          <%= f.number_field :order , :class => 'form-control'%>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <%= f.label :aspect, "Square Aspect Ratio?" %> : <%= f.check_box :aspect %>
+        </div>
+
+        <div class="col">
+          <%= f.label :autoplay, "Autoplay?" %> : <%= f.check_box :autoplay %>
+        </div>
+      </div>
+
+      <%= f.label :long_desc, "Text" %>
+      <%= f.text_area :long_desc, :class => "tinymce", rows: 10 %>
+      <%= f.hidden_field :_destroy %>
+      <%= link_to("Remove", "#", class: "btn btn-danger remove_fields") %>
+      </div>
+  <%# </fieldset> %>
+
 </fieldset>
