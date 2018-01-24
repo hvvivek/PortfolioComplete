@@ -67,14 +67,14 @@
 
               <div class="text-wrapper">
                 <p class="title"><%= link_to project.title, project %></p>
-                <div class="icons">
-                    <div class="plus">
+                <div class="icons row">
+                    <div class="plus col">
                         <%= link_to image_tag("https://s3.us-east-2.amazonaws.com/portfolio-vivek/images/icons/plus.jpg",width:"50"), new_project_path %>
                     </div>
-                    <div class="plus">
+                    <div class="plus col">
                         <%= link_to image_tag("https://s3.us-east-2.amazonaws.com/portfolio-vivek/images/icons/delete.jpg",width:"50"), project, method: :delete, data: { confirm: 'Are you sure?' }  %>
                     </div>
-                    <div class="plus">
+                    <div class="plus col">
                         <%= link_to image_tag("https://s3.us-east-2.amazonaws.com/portfolio-vivek/images/icons/edit.jpg",width:"50"), edit_project_path(project) %>
                     </div>
                 </div>

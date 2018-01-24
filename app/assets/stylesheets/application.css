@@ -54,6 +54,11 @@
      align-self: start;
  }
  
+ .plus
+ {
+     padding: 1rem;
+     text-align: center;
+ }
  
  
  /* Testing */
