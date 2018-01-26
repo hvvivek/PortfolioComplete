@@ -11,7 +11,12 @@
           <div class="sidebar-header">
             <p><%= link_to "Vivek HV", root_path %></p>
           </div>
-
+          <div id="tag_cloud">
+            <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+              <%#= link_to tag.name, tag_path(tag.name), class: css_class %>
+              <%= link_to "#" + tag.name, tag_path(tag.name), class: "tags" %>
+            <% end %>
+          </div>
           <ul class="sidebar-menu">
             <li><%= link_to "About", controller: "projects", action: "contact" %></li>
           </ul>
@@ -21,11 +26,16 @@
       <nav id="sidebar-mobile" class='col-12'>
         <div class="sidebar-content">
           <div class="sidebar-header">
-            <p>Vivek HV</p>
+            <p><%= link_to "Vivek HV", root_path %></p>
           </div>
-
+          <div id="tag_cloud_mobile">
+            <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+              <%#= link_to tag.name, tag_path(tag.name), class: css_class %>
+              <%= link_to "#" + tag.name, tag_path(tag.name), class: "tags" %>
+            <% end %>
+          </div>
           <ul class="sidebar-menu">
-            <li><a href="#">About</a></li>
+            <li><%= link_to "About", controller: "projects", action: "contact" %></li>
           </ul>
         </div>
       </nav>
@@ -105,7 +115,7 @@
                             <img class="img-card-extra" src="<%= medium.link %>" >
                           <% end %>
                           <% if medium.mediatype == 'Video' %>
-                            <video width="1080" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
+                            <video width="540" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
                                 <source src="<%= medium.link %>" type="video/mp4" >
                                 Your browser does not support HTML5 video.
                             </video>

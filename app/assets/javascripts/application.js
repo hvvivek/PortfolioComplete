@@ -26,11 +26,26 @@ var currentImage;
 var currentVideo;
 var currentState;
 var numTags;
+var numTags2;
+
 var prevTag;
+var prevTag2;
+
 var changeToNext = function()
 {
-    var e = $('#tag_cloud').children().eq( Math.floor(Math.random() * numTags))
-    
+    // var mq2 = window.matchMedia('(max-width: 700px)');
+
+    // if(mq2.matches)
+    // {
+    //     var e = $('#tag_cloud_mobile').children().eq( Math.floor(Math.random() * numTags))
+
+    // }
+    // else
+    // {
+        var e = $('#tag_cloud').children().eq( Math.floor(Math.random() * numTags))
+
+    // }
+    // console.log(e[0])
     if(prevTag)
     {
         if(prevTag[0] != e[0])
@@ -61,7 +76,50 @@ var changeToNext = function()
     else
     {
         e.css("display", "block")
-        e.animate({top: "0em"}, 800, function(){    prevTag = e;
+        e.animate({top: "0em"}, 800, function(){    
+            prevTag = e;
+        })
+        // e.slideDown('slow')
+    }
+    
+    // e.css("display", "block")
+}
+
+var changeToNext2 = function()
+{
+        var e = $('#tag_cloud_mobile').children().eq( Math.floor(Math.random() * numTags2))
+    if(prevTag2)
+    {
+        if(prevTag2[0] != e[0])
+        {
+        // prevTag.css("display", "none")
+        prevTag2.animate({top: "-2em"}, 600, function() {
+            // Animation complete.
+            
+            // e.slideDown('slow')
+            // prevTag.css("display", "none");
+
+          });
+          e.css("display", "block")
+          e.animate({top: "0em"}, 800, function(){
+            prevTag2.css("top", "2em");
+
+            prevTag2.css("display", "none");
+            prevTag2 = e;}
+        )
+    }
+    else
+    {
+        changeToNext2()
+    }
+
+
+    }
+    else
+    {
+        e.css("display", "block")
+        e.animate({top: "0em"}, 800, function(){    
+            prevTag2 = e;
         })
         // e.slideDown('slow')
     }
@@ -190,6 +248,11 @@ function load_tag_field(e)
 
 $(document).on('turbolinks:load', function () {
 
+    if($('#project .content').length>0)
+    {
+        $('#project .content').focus()
+
+    }
     if($('#tag-field').length > 0)
     {
         load_tag_field($('#tag-field')[0])
@@ -228,6 +291,8 @@ $(document).on('turbolinks:load', function () {
 
     // console.log("Inside")
     numTags = $('#tag_cloud').children().length;
+    numTags2 = $('#tag_cloud_mobile').children().length;
+
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
     });
@@ -247,66 +312,99 @@ $(document).on('turbolinks:load', function () {
         $('.img-card').css("display", "block");    
     });
 
-
-    // $(".img-card").hover(hoverFunctionStart, hoverFunctionEnd);
     $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
-
-        // $(".content").on('mousewheel', function(event, delta) {
-        //     // console.log(event.originalEvent.deltaY)
-        // this.scrollLeft += (event.originalEvent.deltaY);
-        // event.preventDefault();
-        // });
-
-        $(".content").on('wheel', function(event, delta) {
-        var scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
-        console.log(scrollBy)
-        this.scrollLeft += (scrollBy);
-        event.preventDefault();
-        });
-
-        
-        var mq = window.matchMedia('@media screen and (max-width: 700px)');
-        var mq2 = window.matchMedia('(max-width: 700px)');
-        
-        if(window.mobilecheck())
-        {
-            if(mq.matches ) {
-                // the width of browser is more then 700px
-                console.log("More than 700px")
-                $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
-            
                 
-            } else {
-                // the width of browser is less then 700px
-                console.log("Less than 700px")
+    var mq = window.matchMedia('@media screen and (max-width: 700px)');
+    var mq2 = window.matchMedia('(max-width: 700px)');
+    console.log(window.mobilecheck())
+    console.log(mq2.matches)
+
+    if(!window.mobilecheck() && !mq2.matches)
+    {
+        $(".content").on('wheel', function(event, delta) {
+            var scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+            console.log(scrollBy)
+            this.scrollLeft += (scrollBy);
+            event.preventDefault();
+            });
+    }
+        
+
+    mq2.addListener(function(changed) {
+        console.log(changed)
+
+        if(changed.matches) {
+            // the width of browser is more then 700px
+            console.log("Changed to Less than 700px")
+            $(".img-card").unbind('hover mouseenter mouseleave');
+            $(".img-card").click(clickFunctionImage);
+            $(".vid-card").click(clickFunctionVideo);
+
+            
+                $(".content").off('wheel')
+                // $(".content").on('wheel', function(event, delta) {
+                    
+                //     // event.preventDefault();
+                //     });
+    
+        } else {
+            // the width of browser is less then 700px
+            console.log("Changed to More than 700px")
+            $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
+            
+                $(".content").on('wheel', function(event, delta) {
+                var scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                console.log(scrollBy)
+                this.scrollLeft += (scrollBy);
+                event.preventDefault();
+                });
+            
+        
+    
+        }
+    });
+
+    if(window.mobilecheck())
+    {
+        if(mq.matches ) {
+            // the width of browser is more then 700px
+            console.log("More than 700px")
+            $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
+        
+            
+        } else {
+            // the width of browser is less then 700px
+            console.log("Less than 700px")
+            $(".img-card").unbind('hover mouseenter mouseleave');
+            $(".img-card").click(clickFunctionImage);
+            $(".vid-card").click(clickFunctionVideo);
+        }
+    
+    
+        mq2.addListener(function(changed) {
+            console.log(changed)
+            if(changed.matches) {
+                // the width of browser is more then 700px
+                console.log("Changed to Less than 700px")
                 $(".img-card").unbind('hover mouseenter mouseleave');
                 $(".img-card").click(clickFunctionImage);
                 $(".vid-card").click(clickFunctionVideo);
+        
+        
+            } else {
+                // the width of browser is less then 700px
+                console.log("Changed to More than 700px")
+                $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
+        
             }
-        
-        
-            mq2.addListener(function(changed) {
-                if(changed.matches) {
-                    // the width of browser is more then 700px
-                    console.log("Changed to Less than 700px")
-                    $(".img-card").unbind('hover mouseenter mouseleave');
-                    $(".img-card").click(clickFunctionImage);
-                    $(".vid-card").click(clickFunctionVideo);
-            
-            
-                } else {
-                    // the width of browser is less then 700px
-                    console.log("Changed to More than 700px")
-                    $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
-            
-                }
-            });
-        }
+        });
+    }
         // changeToNext()
 
 });
 
 setInterval(changeToNext, 3000)
+setInterval(changeToNext2, 3000)
 
 
 
