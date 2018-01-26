@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
     has_many :collaborators, inverse_of: :project, dependent: :destroy
     has_many :instructors, inverse_of: :project, dependent: :destroy
-    has_many :media, inverse_of: :project, dependent: :destroy
+    has_many :media,->{ order( :order)}, inverse_of: :project, dependent: :destroy
     has_many :taggings, dependent: :destroy
     has_many :tags, through: :taggings, dependent: :destroy
 
@@ -30,5 +30,4 @@ class Project < ApplicationRecord
             Tag.where(name: n.strip).first_or_create!
         end
     end
-      
 end
