@@ -60,7 +60,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html {  redirect_back(fallback_location: root_path) }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
