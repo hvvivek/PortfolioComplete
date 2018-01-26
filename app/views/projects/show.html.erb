@@ -100,31 +100,18 @@
                       </div>
                   <%else%>
                     <% if medium.aspect == 0 %>
-                        <% if count == 0 %>
-                          <div class="card2">
+                          <div class="card4 align-items-center">
                           <% if medium.mediatype == 'Image' %>
                             <img class="img-card-extra" src="<%= medium.link %>" >
                           <% end %>
                           <% if medium.mediatype == 'Video' %>
-                            <video width="480" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
+                            <video width="1080" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
                                 <source src="<%= medium.link %>" type="video/mp4" >
                                 Your browser does not support HTML5 video.
                             </video>
                           <% end %>
                           <% count += 1 %>
-                        <% else %>
-                          <% if medium.mediatype == 'Image' %>
-                            <img class="img-card-extra" src="<%= medium.link %>" >
-                          <% end %>
-                          <% if medium.mediatype == 'Video' %>
-                            <video width="480" muted <% if(medium.autoplay > 0 ) %> autoplay loop <% end %> >
-                                <source src="<%= medium.link %>" type="video/mp4" >
-                                Your browser does not support HTML5 video.
-                            </video>
-                          <% end %>
                           </div>
-                          <% count = 0 %>
-                        <% end %>
                     <% end %>
 
                     <% if medium.aspect == 1 %>
