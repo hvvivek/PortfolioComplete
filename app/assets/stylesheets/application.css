@@ -394,15 +394,15 @@
 
      .img-container
      {
-         width: 85vw;
-         height: 85vw;
+         width: 80vw;
+         height: 80vw;
          /* margin-left: 8vw; */
      }
 
      .img-container video
      {
-         width: 85vw;
-         height: 85vw;
+         width: 80vw;
+         height: 80vw;
      }
 
      .content
@@ -428,8 +428,8 @@
      }
      .img-card
      {
-         width: 85vw;
-         height: 85vw;
+         width: 80vw;
+         height: 80vw;
      }
 
      #style-3::-webkit-scrollbar
@@ -535,7 +535,7 @@
    }
    #project .card
     {
-        min-height: 75vh;
+        min-height: 70vh;
     
     }
  }
