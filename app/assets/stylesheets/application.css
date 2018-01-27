@@ -298,18 +298,22 @@
 
  #project .card4 video 
  {
-    width: 70vw;
+    width: 85vw;
     max-width: 960px;
 }
 
 #project .card4 .img-card-extra 
  {
-    width: 70vw;
+    width: 85vw;
     max-width: 960px;
     height: auto;
 }
 
-
+#project .card
+{
+  min-height: 600px;
+  max-height: 600px;
+}
 
  @media only screen and (max-width: 700px){
      body {
@@ -390,15 +394,15 @@
 
      .img-container
      {
-         width: 70vw;
-         height: 70vw;
-         /* margin-left: 15vw; */
+         width: 85vw;
+         height: 85vw;
+         /* margin-left: 8vw; */
      }
 
      .img-container video
      {
-         width: 70vw;
-         height: 70vw;
+         width: 85vw;
+         height: 85vw;
      }
 
      .content
@@ -410,22 +414,22 @@
      .card
      {
          margin: 0px;
-         min-width: 70vw;
-         max-width: 70vw;
-         margin-left: 15vw;
-         /* padding-left: 15vw; */
+         min-width: 85vw;
+         max-width: 85vw;
+         margin-left: 8vw;
+         /* padding-left: 8vw; */
      }
      .text-wrapper
      {
-         /* margin-left: 15vw; */
+         /* margin-left: 8vw; */
          
-         min-width: 70vw;
-         max-width: 70vw;
+         min-width: 85vw;
+         max-width: 85vw;
      }
      .img-card
      {
-         width: 70vw;
-         height: 70vw;
+         width: 85vw;
+         height: 85vw;
      }
 
      #style-3::-webkit-scrollbar
@@ -444,13 +448,13 @@
     }
 
     #project .card2 {
-        min-width: 70vw;
-        max-width: 70vw;
+        min-width: 85vw;
+        max-width: 85vw;
         min-height: 100px;
         max-height: 2000px;
         overflow: hidden;
         /* min-height: 650px; */
-        margin-left: 15vw;
+        margin-left: 8vw;
         border: 1px solid transparent;
         display: inline-block;
         text-justify: inter-cluster;
@@ -458,33 +462,33 @@
     }
 
     #project .long-desc {
-        width: 68vw;
+        width: 83vw;
     }
 
     #project .short-desc {
-        width: 68vw;
+        width: 83vw;
     }
 
     #project .card3 {
-        min-width: 70vw;
-        max-width: 70vw;
+        min-width: 85vw;
+        max-width: 85vw;
         min-height: 100px;
         max-height: 2000px;
         overflow: hidden;
         /* min-height: 650px; */
-        margin-left: 15vw;
+        margin-left: 8vw;
         display: inline-block;
         text-justify: inter-cluster;
     }
 
     .wrapper-rhs
     {
-        min-width: 70vw;
-        max-width: 70vw;
+        min-width: 85vw;
+        max-width: 85vw;
     }
     #project .img-card-extra2 {
         display: inline;
-        height: 70vw;
+        height: 85vw;
         margin-bottom: 1em;
         float: left;
         /* position: absolute; */
@@ -493,13 +497,13 @@
     }
 
     #project .card4 {
-        min-width: 70vw;
-        max-width: 70vw;
+        min-width: 85vw;
+        max-width: 85vw;
         min-height: 100px;
         max-height: 2000px;
         overflow: hidden;
         /* min-height: 650px; */
-        margin-left: 15vw;
+        margin-left: 8vw;
         border: 1px solid transparent;
         display: inline-block;
         text-justify: inter-cluster;
@@ -512,7 +516,7 @@
     }
 
     #project .card4 video {
-        width: 70vw;
+        width: 85vw;
     }
 
     #project .card {
@@ -521,6 +525,18 @@
 
     #project .content {
         padding-bottom: 30px;
+    }
+
+    .sub-text-1
+   {
+       font-size: 0.9em;
+       width: 85vw;
+       float: left;
+   }
+   #project .card
+    {
+        min-height: 75vh;
+    
     }
  }
  
