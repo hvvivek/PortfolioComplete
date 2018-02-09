@@ -71,7 +71,7 @@
                       </p>
                     <% end %>
 
-                    <% if (!@project.collaborators.nil? & length(@project.collaborators) > 0) %>
+                    <% if (!@project.collaborators.nil? & @project.collaborators.count > 0) %>
                       <p class="sub-text-1">Collaborator(s):<br> 
                       <% @project.collaborators.each_with_index do |collaborator, index| %>
                         <% if index > 0 %>
