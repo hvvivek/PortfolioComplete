@@ -167,12 +167,17 @@ fieldset.col-4
 {
     margin-bottom: 10px;
 }
+
+fieldset.col-4 .media-card
+{
+    min-height: 1000px;
+}
+
 .media-card
 {
     margin-top: 1   rem;
     padding: 1rem;
     background-color: #eeeeee;
-    min-height: 1000px;
 }
 
 .add_fields
