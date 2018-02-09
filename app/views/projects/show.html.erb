@@ -60,7 +60,7 @@
                     <p class="sub-text-1"><%= @project.period %> <br> <%= @project.location %></p>
 
                     
-                    <% if (!@project.instructors.nil? & & @project.instructors.any?) %>
+                    <% if (!@project.instructors.nil? & @project.instructors.any?) %>
                       <p class="sub-text-1">Instructor(s)/Professor(s):<br> 
                       <% @project.instructors.each_with_index do |instructor, index| %>
                         <% if index > 0 %>
