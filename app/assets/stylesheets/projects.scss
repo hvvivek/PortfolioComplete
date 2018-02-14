@@ -239,3 +239,66 @@ label
     font-family: 'Lora', 'serif';
     font-weight: 600;
 }
+
+// #tag_cloud a.tags_type {
+//     overflow: hidden; /* Ensures the content is not revealed until the animation */
+//     border-right: .15em solid orange; /* The typwriter cursor */
+//     white-space: nowrap; /* Keeps the content on a single line */
+//     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+//     letter-spacing: .15em; /* Adjust as needed */
+    // animation: 
+    //   typing 3.5s steps(40, end),
+    //   blink-caret .75s step-end infinite;
+//   }
+  
+//   /* The typing effect */    
+//   @keyframes typing {
+//     from { width: 0 }
+//     to { width: 100% }
+//   }
+  
+  
+
+.tag_type
+{
+    height: 2em;
+    font-size: 0.9em;
+    box-sizing: border-box;
+    // float: left;
+    border-right: 2px solid;
+    width: max-content;
+    padding-right: -1px;
+    margin-bottom: 0.5rem;
+    animation: 
+      blink-caret .75s step-end infinite;
+}
+
+.tag_type:hover
+{
+    color: white;
+}
+
+
+// .cursor
+// {
+//     color: orange;
+//     float: left;
+//     animation: 
+//       blink-caret .75s step-end infinite;
+// }
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #32cd32; }
+  }
+
+.sidebar-header p
+{
+    margin-bottom: 0.5rem;
+}
+
+
+  .tag_type_mobile
+{
+}

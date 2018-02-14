@@ -9,12 +9,12 @@
           <div class="sidebar-header">
             <p><%= link_to "Vivek HV", root_path %></p>
           </div>
-          <div id="tag_cloud">
-            <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
-              <%#= link_to tag.name, tag_path(tag.name), class: css_class %>
-              <%= link_to "#" + tag.name, tag_path(tag.name), class: "tags" %>
-            <% end %>
-          </div>
+
+          <a href="" class="tag_type">
+          </a>
+          <%= content_tag :div, class: "temp_information", data: {temp: Project.tag_counts.map{|x| [x.name, tag_path(x.name)]}} do %>
+          <% end %>
+          
           <ul class="sidebar-menu">
             <li><%= link_to "About", controller: "projects", action: "contact" %></li>
           </ul>
@@ -28,11 +28,13 @@
             <p><%= link_to "Vivek HV", root_path %></p>
           </div>
 
-            <div id="tag_cloud_mobile">
-            <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
-              <%#= link_to tag.name, tag_path(tag.name), class: css_class %>
-              <%= link_to "#" + tag.name, tag_path(tag.name), class: "tags" %>
-            <% end %>
+          
+          <div class="row align-items-center">
+            
+            <a  href="" class="col tag_type tag_type_mobile">
+            </a>
+            <div class="cursor">
+            </div>
           </div>
 
           
