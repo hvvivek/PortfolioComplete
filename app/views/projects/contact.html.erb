@@ -1,3 +1,6 @@
+<script>loadPDF()</script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
 <div class="wrapper">
       <!-- Sidebar Start -->
       <nav id="sidebar">
@@ -9,12 +12,11 @@
           <div class="sidebar-header">
             <p><%= link_to "Vivek HV", root_path %></p>
           </div>
-          <div id="tag_cloud">
-            <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
-              <%#= link_to tag.name, tag_path(tag.name), class: css_class %>
-              <%= link_to "#" + tag.name, tag_path(tag.name), class: "tags" %>
-            <% end %>
-          </div>
+          <a href="" class="tag_type">
+          </a>
+          <%= content_tag :div, class: "temp_information", data: {temp: Project.tag_counts.map{|x| [x.name, tag_path(x.name)]}} do %>
+          <% end %>
+
           <ul class="sidebar-menu">
             <li><%= link_to "About", controller: "projects", action: "contact" %></li>
           </ul>
@@ -26,27 +28,86 @@
         <div class="sidebar-content">
           <div class="sidebar-header">
             <p>Vivek HV</p>
-
-            <div id="tag_cloud">
-              <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
-                <%# <%= link_to tag.name, tag_path(tag.name), class: css_class %> %>
-                <%= link_to tag.name, tag_path(tag.name) %>
-              <% end %>
-            </div>
-          </div>
-
-
           
-          <ul class="sidebar-menu">
-            <li><a href="#">About</a></li>
-          </ul>
         </div>
+        <div class="row align-items-center">
+            
+            <a  href="" class="col tag_type tag_type_mobile">
+            </a>
+          </div>
       </nav>
       <!-- Sidebar End -->
 
       <!-- Content Start -->
       <div class="content" id="style-3">
         <div class="row1">
+          <div class="resume-container text-center">
+            <h4>About me</h4>
+            <div class="self-container text-center">
+            <img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/self/1.png" width=250 class="rounded" alt="..." onmouseover="hideThis(this)">
+            <video class="vid-card"  width="250" height="250" muted loop autoplay onmouseout="hideVideo(this)">
+                <source src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/self/7_1.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            </div>
+            <div class="contact-container">
+            <a href='mailto:vivekhv@mde.harvard.edu'><i class="far fa-envelope"></i></a>
+            <a href='https://www.facebook.com/ItsreallyVivek'><i class="fab fa-facebook-square"></i></a>
+            <a href='https://www.linkedin.com/in/vivek-h-v'><i class="fab fa-linkedin"></i></a>
+            <a href='https://github.com/hvvivek'><i class="fab fa-github"></i>  </a>
+              <p>Hi! I am Vivek HV.</p> <p> Designer. Engineer. Artist. &nbsp Student.  </p>
+              <p>Having lived in India all my life, I have observed and experienced the redoubtable change that technology brings to society. For good and bad.<p>
+              <p>I am passionate about using technology to change lives for the better. I intend for my portfolio to document this pursuit.</p>
+              <p>I am currently part of the second cohort of the Masters in Design Engineering program at Harvard University. Feel free to reach out to me!</p>
+              
+
+            </div>
+          </div>
+        
+          <div class="resume-container">
+            <h4>Resum&#232 <a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/documents/Resume.pdf"><i class="fas fa-external-link-alt"></i></a></h4>
+            <a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/documents/Resume.pdf"><canvas id="the-canvas"></canvas></a>
+          </div>
+
+          <div class="resume-container">
+            <h4>Older Projects</h4>
+            <div class="project-container">
+              <div class="square"><a href="http://vivek-hv.squarespace.com/#/web-development/"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/old_projects/Web.png" ></a></div>
+              <div class="square"><a href="http://vivek-hv.squarespace.com/#/project-viento/"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/old_projects/Viento.jpg" ></a></div>
+              <div class="square"><a href="http://vivek-hv.squarespace.com/#/machine-learning-big-data/"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/old_projects/MLDS.png" ></a></div>
+              <div class="square"><a href="http://vivek-hv.squarespace.com/#/android-development/"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/old_projects/Android.png" ></a></div>
+              <div class="square"><a href="http://vivek-hv.squarespace.com/#/project-cube/"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/old_projects/Cube.png" ></a></div>
+            </div>
+          </div>
+
+          <div class="resume-container">
+            <h4>Art</h4>
+            <div class="art-container">
+              <div class="square"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/art1.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/squares/1.png" ></a></div>
+              <div class="square"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/art7.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/squares/2.png" ></a></div>
+              <div class="square"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/art6.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/squares/3.png" ></a></div>
+              <div class="square"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/art5.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/squares/4.png" ></a></div>
+              <div class="square"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/art4.png"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/squares/5.png" ></a></div>
+              <div class="square"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/art3.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/artwork/squares/6.png" ></a></div>
+
+            </div>
+          </div>
+
+          <div class="resume-container">
+            <h4>Photography</h4>
+            <div class="photograph-container">
+              <div class="square-photo"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/full/9.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/squares/1.png" ></a></div>
+              <div class="square-photo"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/full/8.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/squares/2.png" ></a></div>
+              <div class="square-photo"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/full/7.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/squares/3.png" ></a></div>
+              <div class="square-photo"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/full/6.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/squares/4.png" ></a></div>
+              <div class="square-photo"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/full/5.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/squares/5.png" ></a></div>
+              <div class="square-photo"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/full/4.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/squares/6.png" ></a></div>
+              <div class="square-photo"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/full/3.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/squares/7.png" ></a></div>
+              <div class="square-photo"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/full/2.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/squares/8.png" ></a></div>
+              <div class="square-photo"><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/full/1.jpg"><img src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/photographs/squares/9.png" ></a></div>
+
+            </div>
+          </div>
         </div>
       </div>
       <!-- Content End -->
