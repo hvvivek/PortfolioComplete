@@ -468,10 +468,11 @@
        display: inline-block;
        text-justify: inter-cluster;
        /* padding: 10px; */
+       height: auto;
    }
 
    #project .long-desc {
-       width: 90vw;
+       width: 88vw;
    }
 
    #project .short-desc {
@@ -488,6 +489,7 @@
        margin-left: 5vw;
        display: inline-block;
        text-justify: inter-cluster;
+       height: auto;
    }
 
    .wrapper-rhs
@@ -715,10 +717,11 @@
        display: inline-block;
        text-justify: inter-cluster;
        /* padding: 10px; */
+       height: auto;
    }
 
    #project .long-desc {
-       width: 90vw;
+       width: 88vw;
    }
 
    #project .short-desc {
@@ -735,6 +738,7 @@
        margin-left: 5vw;
        display: inline-block;
        text-justify: inter-cluster;
+       height: auto;
    }
 
    .wrapper-rhs
@@ -763,6 +767,7 @@
        border: 1px solid transparent;
        display: inline-block;
        text-justify: inter-cluster;
+       height: auto;
    }
 
    #project .img-card-extra
