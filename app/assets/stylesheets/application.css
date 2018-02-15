@@ -102,6 +102,7 @@
    .wrapper-rhs
    {
      width: 400px;
+     max-width: 80vh;
      /* height: 650px; */
      float: left;
    }
@@ -117,6 +118,8 @@
        display: inline;
        height: 400px;
        width: 400px;
+       max-height: 80vh;
+       max-width: 80vh;
        float: left;
        position: absolute;
        filter: grayscale(100%);
@@ -204,6 +207,8 @@
        position: relative;
      height: 400px;
      width: 400px;
+     max-height: 80vh;
+     max-width: 80vh;
      overflow: hidden;
    }
  
