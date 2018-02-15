@@ -445,6 +445,7 @@ $(document).on('turbolinks:load', function () {
     $("video").controls = true
 
     videos = document.querySelectorAll("video");
+    loadVideos();
     console.log(videos)
     if(window.mobilecheck())
     {
@@ -453,6 +454,14 @@ $(document).on('turbolinks:load', function () {
 });
 
 
+function loadVideos()
+{
+    for(var i=0; i<videos.length; i++)
+    {
+        video = videos[i]
+        video.load()
+    }
+}
 function toggleControls() {
     for(var i=0; i<videos.length; i++)
     {
