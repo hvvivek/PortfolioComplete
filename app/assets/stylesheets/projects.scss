@@ -613,3 +613,24 @@ label
 
 
 }
+
+
+@media only screen and (max-height: 600px){
+    .img-container
+    {
+        // height: 70vh;
+        // width: 70vh;
+        margin-left: calc(45vw - 35vh)
+    }
+
+    #project .img-card-extra2 {
+        margin-left: calc(45vw - 40vh)
+        
+    }
+
+    #project .card
+    {
+        min-height: auto;
+        padding-bottom: 10px;
+    }
+}
