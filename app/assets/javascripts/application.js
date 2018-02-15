@@ -27,6 +27,7 @@ var currentVideo;
 var currentState;
 var numTags;
 var numTags2;
+var videos;
 
 var prevTag;
 var prevTag2;
@@ -441,9 +442,33 @@ $(document).on('turbolinks:load', function () {
             }
         });
     }
+    $("video").controls = true
 
+    videos = document.querySelectorAll("video");
+    console.log(videos)
+    if(window.mobilecheck())
+    {
+        toggleControls()
+    }
 });
 
+
+function toggleControls() {
+    for(var i=0; i<videos.length; i++)
+    {
+        video = videos[i]
+        console.log(video)
+
+        if (video.hasAttribute("controls")) {
+            video.removeAttribute("controls")   
+        } else {
+            video.setAttribute("controls","controls")   
+        }
+    }
+    
+  }
+
+  
 PDFJS.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
 
 var loadPDF = function()
