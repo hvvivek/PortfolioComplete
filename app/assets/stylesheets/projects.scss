@@ -57,6 +57,7 @@
 {
   display: inline;
   height: 600px;
+  max-height: 80vh;
   margin-bottom: 30px;
   float: left;
   /* position: absolute; */
@@ -68,6 +69,7 @@
 {
   display: inline;
   height: 600px;
+  max-height: 80vh;
   // width: 480px;
   margin-bottom: 1em;
   float: left;
@@ -327,26 +329,28 @@ label
 .resume-container canvas
 {
     height: 600px;
+    max-height: 80vh;
 }
 
 .contact-container
 {
     width: 500px;
     height: 600px;
-
+    max-height: 80vh;
 }
 
 .photograph-container
 {
     width: 640px;
     height: 600px;
-
+    max-height: 80vh;
 }
 
 .art-container
 {
     width: 420px;
     height: 600px;
+    max-height: 80vh;
 
 }
 
@@ -354,6 +358,7 @@ label
 {
     width: 420px;
     height: 600px;
+    max-height: 80vh;
 
 }
 
