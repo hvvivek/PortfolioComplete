@@ -438,7 +438,7 @@ label
 {
     width: 20px;
 }
-@media only screen and (max-device-width: 700px){
+@media only screen and (max-width: 700px){
     .svg-inline--fa.fa-w-16, .svg-inline--fa.fa-w-14
     {
         width: 7vw;
@@ -520,7 +520,7 @@ label
 
 }
 
-@media only screen and (max-device-width: 500px){
+@media only screen and (max-width: 500px){
     .svg-inline--fa.fa-w-16, .svg-inline--fa.fa-w-14
     {
         width: 10vw;
