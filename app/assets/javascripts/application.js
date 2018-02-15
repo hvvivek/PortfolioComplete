@@ -377,8 +377,8 @@ $(document).on('turbolinks:load', function () {
             // the width of browser is more then 700px
             console.log("Changed to Less than 700px")
             $(".img-card").unbind('hover mouseenter mouseleave');
-            $(".img-card").click(clickFunctionImage);
-            $(".vid-card").click(clickFunctionVideo);
+            // $(".img-card").click(clickFunctionImage);
+            // $(".vid-card").click(clickFunctionVideo);
 
             
                 $(".content").off('wheel')
@@ -416,8 +416,8 @@ $(document).on('turbolinks:load', function () {
             // the width of browser is less then 700px
             console.log("Less than 700px")
             $(".img-card").unbind('hover mouseenter mouseleave');
-            $(".img-card").click(clickFunctionImage);
-            $(".vid-card").click(clickFunctionVideo);
+            // $(".img-card").click(clickFunctionImage);
+            // $(".vid-card").click(clickFunctionVideo);
         }
     
     
@@ -427,8 +427,8 @@ $(document).on('turbolinks:load', function () {
                 // the width of browser is more then 700px
                 console.log("Changed to Less than 700px")
                 $(".img-card").unbind('hover mouseenter mouseleave');
-                $(".img-card").click(clickFunctionImage);
-                $(".vid-card").click(clickFunctionVideo);
+                // $(".img-card").click(clickFunctionImage);
+                // $(".vid-card").click(clickFunctionVideo);
         
         
             } else {
