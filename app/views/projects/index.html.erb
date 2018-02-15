@@ -58,6 +58,7 @@
                 <img class="img-card" src="<%= project.thumb_img %>" target='vid-<%= index %>' toggle="img-<%= index %>">
                 <video class="vid-card"  width="400" height="400" target='img-<%= index %>' toggle="vid-<%= index %>" playsinline   muted loop>
                     <source src="<%= project.thumb_vid %>" type="video/mp4">
+                    <img src = "<%= project.thumb_img %>">
                     Your browser does not support HTML5 video.
                 </video>
               </div>
