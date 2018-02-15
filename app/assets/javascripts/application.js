@@ -170,10 +170,8 @@ var hoverFunctionStart = function(e) {
         currentImage = this;
 
         timeoutId = window.setTimeout(function() {
-            if(!window.mobilecheck())
-            {
-                // $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" )[0].play()  
-            }
+            $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" )[0].play()  
+            
             timeoutId = null; // EDIT: added this line
             $(currentImage).find(".img-card").css("display", "none");
             $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" ).css("display", "block");  
@@ -197,7 +195,8 @@ var clickFunctionImage = function(e) {
     currentImage = this;
     $(currentImage).css("display", "none");
     $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" ).css("display", "block");  
-    $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" )[0].play()
+    
+    // $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" )[0].play()
 }
 
 var clickFunctionVideo = function(e) {
