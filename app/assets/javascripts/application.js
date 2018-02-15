@@ -170,7 +170,10 @@ var hoverFunctionStart = function(e) {
         currentImage = this;
 
         timeoutId = window.setTimeout(function() {
-            $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" )[0].play()  
+            if(!window.mobilecheck())
+            {
+                $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" )[0].play()  
+            }
             timeoutId = null; // EDIT: added this line
             $(currentImage).find(".img-card").css("display", "none");
             $( ".vid-card[toggle='" + $(currentImage).attr('target') + "']" ).css("display", "block");  
