@@ -394,15 +394,15 @@
 
      .img-container
      {
-         width: 80vw;
-         height: 80vw;
+         width: 85vw;
+         height: 85vw;
          /* margin-left: 5vw; */
      }
 
      .img-container video
      {
-         width: 80vw;
-         height: 80vw;
+         width: 85vw;
+         height: 85vw;
      }
 
      .content
@@ -428,8 +428,8 @@
      }
      .img-card
      {
-         width: 80vw;
-         height: 80vw;
+         width: 85vw;
+         height: 85vw;
      }
 
      #style-3::-webkit-scrollbar
