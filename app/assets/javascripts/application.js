@@ -509,4 +509,10 @@ function hideVideo(e)
     $(e).parent().find("img").css({"display":"inline"})
 }
 
+function fallback(video)
+{
+  var img = video.querySelector('img');
+  if (img)
+    video.parentNode.replaceChild(img, video);
+}
 
