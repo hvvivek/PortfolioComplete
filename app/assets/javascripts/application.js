@@ -457,6 +457,7 @@ function toggleControls() {
     for(var i=0; i<videos.length; i++)
     {
         video = videos[i]
+        video.load()
         console.log(video)
 
         if (video.hasAttribute("controls")) {
