@@ -46,59 +46,6 @@ function typeWriter() {
 }
 
 
-// var changeToNext = function()
-// {
-//     // var mq2 = window.matchMedia('(max-width: 700px)');
-
-//     // if(mq2.matches)
-//     // {
-//     //     var e = $('#tag_cloud_mobile').children().eq( Math.floor(Math.random() * numTags))
-
-//     // }
-//     // else
-//     // {
-//         var e = $('#tag_cloud').children().eq( Math.floor(Math.random() * numTags))
-
-//     // }
-//     // console.log(e[0])
-//     if(prevTag)
-//     {
-//         if(prevTag[0] != e[0])
-//         {
-//         // prevTag.css("display", "none")
-//         prevTag.animate({top: "-2em"}, 600, function() {
-//             // Animation complete.
-            
-//             // e.slideDown('slow')
-//             // prevTag.css("display", "none");
-
-//           });
-//           e.css("display", "block")
-//           e.animate({top: "0em"}, 800, function(){
-//             prevTag.css("top", "2em");
-
-//             prevTag.css("display", "none");
-//             prevTag = e;}
-//         )
-//     }
-//     else
-//     {
-//         changeToNext()
-//     }
-
-
-//     }
-//     else
-//     {
-//         e.css("display", "block")
-//         e.animate({top: "0em"}, 800, function(){    
-//             prevTag = e;
-//         })
-//         // e.slideDown('slow')
-//     }
-    
-//     // e.css("display", "block")
-// }
 
 var changeToNext = function()
 {
@@ -356,36 +303,42 @@ $(document).on('turbolinks:load', function () {
                 
     var mq = window.matchMedia('@media screen and (max-width: 700px)');
     var mq2 = window.matchMedia('(max-width: 700px)');
+    var mq3 = window.matchMedia('(max-height: 600px)');
     console.log(window.mobilecheck())
     console.log(mq2.matches)
 
-    if(!window.mobilecheck() && !mq2.matches)
+    if(!window.mobilecheck() && !(mq2.matches || mq3.matches))
     {
         $(".content").on('wheel', function(event, delta) {
-            var scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+            var scrollBy = -100;
+            if(event.originalEvent.deltaY > event.originalEvent.deltaX)
+            {   if(event.originalEvent.deltaY != 0)
+                {
+                    scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                }
+            }
+            else
+            {   
+                if(event.originalEvent.deltaX != 0)
+                {
+                scrollBy = 100*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+                }
+            }
+            
             console.log(scrollBy)
             this.scrollLeft += (scrollBy);
             event.preventDefault();
             });
-    }
-        
+    }        
 
     mq2.addListener(function(changed) {
         console.log(changed)
 
         if(changed.matches) {
-            // the width of browser is more then 700px
             console.log("Changed to Less than 700px")
             $(".img-card").unbind('hover mouseenter mouseleave');
-            // $(".img-card").click(clickFunctionImage);
-            // $(".vid-card").click(clickFunctionVideo);
-
             
                 $(".content").off('wheel')
-                // $(".content").on('wheel', function(event, delta) {
-                    
-                //     // event.preventDefault();
-                //     });
     
         } else {
             // the width of browser is less then 700px
@@ -393,53 +346,101 @@ $(document).on('turbolinks:load', function () {
             $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
             
                 $(".content").on('wheel', function(event, delta) {
-                var scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
-                console.log(scrollBy)
+                    var scrollBy = 0;
+                    if(event.originalEvent.deltaY > event.originalEvent.deltaX)
+                    {   if(event.originalEvent.deltaY != 0)
+                        {
+                            scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                        }
+                    }
+                    else
+                    {   
+                        if(event.originalEvent.deltaX != 0)
+                        {
+                        scrollBy = 100*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+                        }
+                    }
+                    
+                console.log(scrollBy )
                 this.scrollLeft += (scrollBy);
                 event.preventDefault();
                 });
+        }
+    });
+
+    mq3.addListener(function(changed) {
+        console.log(changed)
+
+        if(changed.matches) {
+            console.log("Changed to Less than 700px")
+            $(".img-card").unbind('hover mouseenter mouseleave');
             
-        
+                $(".content").off('wheel')
     
+        } else {
+            // the width of browser is less then 700px
+            console.log("Changed to More than 700px")
+            $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
+            
+                $(".content").on('wheel', function(event, delta) {
+                var scrollBy = 0;
+                if(event.originalEvent.deltaY > event.originalEvent.deltaX)
+                {   if(event.originalEvent.deltaY != 0)
+                    {
+                        scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                    }
+                }
+                else
+                {   
+                    if(event.originalEvent.deltaX != 0)
+                    {
+                    scrollBy = 100*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+                    }
+                }
+                
+                this.scrollLeft += (scrollBy);
+                event.preventDefault();
+                });
         }
     });
 
     if(window.mobilecheck())
     {
         if(mq.matches ) {
-            // the width of browser is more then 700px
             console.log("More than 700px")
             $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
         
             
         } else {
-            // the width of browser is less then 700px
             console.log("Less than 700px")
             $(".img-card").unbind('hover mouseenter mouseleave');
-            // $(".img-card").click(clickFunctionImage);
-            // $(".vid-card").click(clickFunctionVideo);
         }
     
     
         mq2.addListener(function(changed) {
             console.log(changed)
             if(changed.matches) {
-                // the width of browser is more then 700px
                 console.log("Changed to Less than 700px")
-                $(".img-card").unbind('hover mouseenter mouseleave');
-                // $(".img-card").click(clickFunctionImage);
-                // $(".vid-card").click(clickFunctionVideo);
-        
-        
+                $(".img-card").unbind('hover mouseenter mouseleave'); 
             } else {
-                // the width of browser is less then 700px
+                console.log("Changed to More than 700px")
+                $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
+        
+            }
+        });
+
+        mq3.addListener(function(changed) {
+            console.log(changed)
+            if(changed.matches) {
+                console.log("Changed to Less than 700px")
+                $(".img-card").unbind('hover mouseenter mouseleave'); 
+            } else {
                 console.log("Changed to More than 700px")
                 $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
         
             }
         });
     }
-        // changeToNext()
 
 });
 
