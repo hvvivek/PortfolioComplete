@@ -56,8 +56,8 @@
             <div class="wrapper-rhs" target='vid-<%= index %>' toggle="img-<%= index %>">
               <div class="img-container">
                 <img class="img-card" src="<%= project.thumb_img %>" target='vid-<%= index %>' toggle="img-<%= index %>">
-                <video class="vid-card" src="<%= project.thumb_vid %>" width="400" height="400" target='img-<%= index %>' toggle="vid-<%= index %>" playsinline muted loop controls  onerror="fallback(this)">
-                    <source src="<%= project.thumb_vid %>" type="video/mp4" onerror="fallback(parentNode)">
+                <video class="vid-card" width="400" height="400" target='img-<%= index %>' toggle="vid-<%= index %>" playsinline muted loop>
+                    <source src="<%= project.thumb_vid %>" type="video/mp4">
                     <img class="img-card" src="<%= project.thumb_img %>">
                     Your browser does not support HTML5 video.
                 </video>
