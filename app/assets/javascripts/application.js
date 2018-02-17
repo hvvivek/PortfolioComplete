@@ -311,18 +311,18 @@ $(document).on('turbolinks:load', function () {
     if(!window.mobilecheck() && !(mq2.matches || mq3.matches))
     {
         $(".content").on('wheel', function(event, delta) {
-            var scrollBy = -20;
+            var scrollBy = -10;
             if(event.originalEvent.deltaY > event.originalEvent.deltaX)
             {   if(event.originalEvent.deltaY != 0)
                 {
-                    scrollBy = 20*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                    scrollBy = 10*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
                 }
             }
             else
             {   
                 if(event.originalEvent.deltaX != 0)
                 {
-                scrollBy = 20*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+                scrollBy = 10*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
                 }
             }
             
@@ -351,14 +351,14 @@ $(document).on('turbolinks:load', function () {
                     if(event.originalEvent.deltaY > event.originalEvent.deltaX)
                     {   if(event.originalEvent.deltaY != 0)
                         {
-                            scrollBy = 20*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                            scrollBy = 10*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
                         }
                     }
                     else
                     {   
                         if(event.originalEvent.deltaX != 0)
                         {
-                        scrollBy = 20*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+                        scrollBy = 10*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
                         }
                     }
                     
@@ -388,14 +388,14 @@ $(document).on('turbolinks:load', function () {
                 if(event.originalEvent.deltaY > event.originalEvent.deltaX)
                 {   if(event.originalEvent.deltaY != 0)
                     {
-                        scrollBy = 20*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                        scrollBy = 10*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
                     }
                 }
                 else
                 {   
                     if(event.originalEvent.deltaX != 0)
                     {
-                    scrollBy = 20*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+                    scrollBy = 10*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
                     }
                 }
                 
