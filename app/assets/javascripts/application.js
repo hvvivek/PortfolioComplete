@@ -311,18 +311,18 @@ $(document).on('turbolinks:load', function () {
     if(!window.mobilecheck() && !(mq2.matches || mq3.matches))
     {
         $(".content").on('wheel', function(event, delta) {
-            var scrollBy = -100;
+            var scrollBy = -20;
             if(event.originalEvent.deltaY > event.originalEvent.deltaX)
             {   if(event.originalEvent.deltaY != 0)
                 {
-                    scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                    scrollBy = 20*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
                 }
             }
             else
             {   
                 if(event.originalEvent.deltaX != 0)
                 {
-                scrollBy = 100*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+                scrollBy = 20*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
                 }
             }
             
@@ -351,14 +351,14 @@ $(document).on('turbolinks:load', function () {
                     if(event.originalEvent.deltaY > event.originalEvent.deltaX)
                     {   if(event.originalEvent.deltaY != 0)
                         {
-                            scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                            scrollBy = 20*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
                         }
                     }
                     else
                     {   
                         if(event.originalEvent.deltaX != 0)
                         {
-                        scrollBy = 100*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+                        scrollBy = 20*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
                         }
                     }
                     
@@ -388,14 +388,14 @@ $(document).on('turbolinks:load', function () {
                 if(event.originalEvent.deltaY > event.originalEvent.deltaX)
                 {   if(event.originalEvent.deltaY != 0)
                     {
-                        scrollBy = 100*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                        scrollBy = 20*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
                     }
                 }
                 else
                 {   
                     if(event.originalEvent.deltaX != 0)
                     {
-                    scrollBy = 100*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+                    scrollBy = 20*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
                     }
                 }
                 
@@ -442,7 +442,7 @@ $(document).on('turbolinks:load', function () {
             }
         });
     }
-    $("video").controls = true
+    // $("video").contr     ols = true
 
     videos = document.querySelectorAll("video");
     loadVideos();
@@ -466,7 +466,7 @@ function toggleControls() {
     for(var i=0; i<videos.length; i++)
     {
         video = videos[i]
-        video.load()
+        // video.load()
         console.log(video)
 
         if (video.hasAttribute("controls")) {
