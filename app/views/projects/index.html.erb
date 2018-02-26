@@ -52,6 +52,7 @@
     <% @projects.each_with_index do |project, index| %>
 
           <div class="card">
+          <a href = "<%= project %>" 
             <!-- <p class="side-text">Graduate School of Design / Harvard University / Fall 2017</p> -->
             <div class="wrapper-rhs" target='vid-<%= index %>' toggle="img-<%= index %>">
               <div class="img-container">
@@ -72,7 +73,8 @@
                 </p>
               </div>
             </div>
-          </div>
+          </a>
+        </div>
 <!--
         <td><%#= link_to 'Edit', edit_project_path(project) %></td>
         <td><%#= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
