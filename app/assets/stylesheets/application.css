@@ -137,6 +137,18 @@
        filter: grayscale(0%);
        /* opacity: 0.5; */
    }
+
+   .card .side-text
+   {
+       /* filter: grayscale(0%); */
+       opacity: 0;
+   }
+
+   .card:hover .side-text
+   {
+       /* filter: grayscale(0%); */
+       opacity: 1;
+   }
  
    .side-text
    {

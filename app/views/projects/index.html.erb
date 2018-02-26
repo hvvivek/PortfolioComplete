@@ -50,10 +50,10 @@
         <div class="row1">
 
     <% @projects.each_with_index do |project, index| %>
-
+    
+    <%= link_to(project) do %>
           <div class="card">
-          <a href = "<%= project %>" 
-            <!-- <p class="side-text">Graduate School of Design / Harvard University / Fall 2017</p> -->
+            <p class="side-text"><%= project.period %></p>
             <div class="wrapper-rhs" target='vid-<%= index %>' toggle="img-<%= index %>">
               <div class="img-container">
                 <img class="img-card" src="<%= project.thumb_img %>" target='vid-<%= index %>' toggle="img-<%= index %>">
@@ -73,7 +73,7 @@
                 </p>
               </div>
             </div>
-          </a>
+          <% end %>
         </div>
 <!--
         <td><%#= link_to 'Edit', edit_project_path(project) %></td>
