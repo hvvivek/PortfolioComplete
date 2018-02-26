@@ -310,26 +310,28 @@ $(document).on('turbolinks:load', function () {
 
     if(!window.mobilecheck() && !(mq2.matches || mq3.matches))
     {
-        $(".content").on('wheel', function(event, delta) {
-            var scrollBy = -10;
-            if(event.originalEvent.deltaY > event.originalEvent.deltaX)
-            {   if(event.originalEvent.deltaY != 0)
-                {
-                    scrollBy = 10*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
-                }
-            }
-            else
-            {   
-                if(event.originalEvent.deltaX != 0)
-                {
-                scrollBy = 10*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
-                }
-            }
+        // $(".content").on('wheel', function(event, delta) {
+        //     var scrollBy = -10;
+        //     if(Math.abs(event.originalEvent.deltaY) > Math.abs(event.originalEvent.deltaX))
+        //     {   if(event.originalEvent.deltaY != 0)
+        //         {
+        //             scrollBy = 10*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+        //         }
+        //     }
+        //     else
+        //     {   
+        //         if(event.originalEvent.deltaX != 0)
+        //         {
+        //         scrollBy = 10*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+        //         }
+        //     }
             
-            console.log(scrollBy)
-            this.scrollLeft += (scrollBy);
-            event.preventDefault();
-            });
+        //     // console.log(scrollBy)
+        //     console.log(event.originalEvent.deltaY + " " + event.originalEvent.deltaX )
+
+        //     this.scrollLeft += (scrollBy);
+        //     event.preventDefault();
+        //     });
     }        
 
     mq2.addListener(function(changed) {
@@ -346,26 +348,26 @@ $(document).on('turbolinks:load', function () {
             console.log("Changed to More than 700px")
             $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
             
-                $(".content").on('wheel', function(event, delta) {
-                    var scrollBy = 0;
-                    if(event.originalEvent.deltaY > event.originalEvent.deltaX)
-                    {   if(event.originalEvent.deltaY != 0)
-                        {
-                            scrollBy = 10*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
-                        }
-                    }
-                    else
-                    {   
-                        if(event.originalEvent.deltaX != 0)
-                        {
-                        scrollBy = 10*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
-                        }
-                    }
+                // $(".content").on('wheel', function(event, delta) {
+                //     var scrollBy = 0;
+                //     if(Math.abs(event.originalEvent.deltaY) > Math.abs(event.originalEvent.deltaX))
+                //     {   if(event.originalEvent.deltaY != 0)
+                //         {
+                //             scrollBy = 10*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+                //         }
+                //     }
+                //     else
+                //     {   
+                //         if(event.originalEvent.deltaX != 0)
+                //         {
+                //         scrollBy = 10*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+                //         }
+                //     }
                     
-                console.log(scrollBy )
-                this.scrollLeft += (scrollBy);
-                event.preventDefault();
-                });
+                // console.log(event.originalEvent.deltaY + " " + event.originalEvent.deltaX )
+                // this.scrollLeft += (scrollBy);
+                // event.preventDefault();
+                // });
         }
     });
 
@@ -381,27 +383,29 @@ $(document).on('turbolinks:load', function () {
         } else {
             // the width of browser is less then 700px
             console.log("Changed to More than 700px")
-            $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
+            // $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
             
-                $(".content").on('wheel', function(event, delta) {
-                var scrollBy = 0;
-                if(event.originalEvent.deltaY > event.originalEvent.deltaX)
-                {   if(event.originalEvent.deltaY != 0)
-                    {
-                        scrollBy = 10*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
-                    }
-                }
-                else
-                {   
-                    if(event.originalEvent.deltaX != 0)
-                    {
-                    scrollBy = 10*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
-                    }
-                }
+            //     $(".content").on('wheel', function(event, delta) {
+            //     var scrollBy = 0;
+            //     if(Math.abs(event.originalEvent.deltaY) > Math.abs(event.originalEvent.deltaX))
+            //     {   if(event.originalEvent.deltaY != 0)
+            //         {
+            //             scrollBy = 10*Math.abs(event.originalEvent.deltaY)/event.originalEvent.deltaY
+            //         }
+            //     }
+            //     else
+            //     {   
+            //         if(event.originalEvent.deltaX != 0)
+            //         {
+            //         scrollBy = 10*Math.abs(event.originalEvent.deltaX)/event.originalEvent.deltaX
+            //         }
+            //     }
                 
-                this.scrollLeft += (scrollBy);
-                event.preventDefault();
-                });
+            //     this.scrollLeft += (scrollBy);
+            //     console.log(event.originalEvent.deltaY + " " + event.originalEvent.deltaX )
+
+            //     event.preventDefault();
+            //     });
         }
     });
 
