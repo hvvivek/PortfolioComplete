@@ -919,3 +919,120 @@ body {
   width: 100%;
   overflow: auto;
 }
+
+#arrows
+{
+    position: absolute;
+    /* width: 100%; */
+    margin-top: 4em;
+}
+
+#arrows img
+{
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    opacity: 0.0;
+}
+
+#arrow-right
+{
+    /* right: 0px; */
+    margin-left: 2.5em;
+}
+
+
+#right-key
+{
+    display: none;
+}
+
+#left-key
+{
+    display: none;
+
+}
+
+#key-info
+{
+    display: none;
+}
+
+
+@media only screen and (min-height: 630px){
+
+.content:hover #right-key
+{
+    opacity: 0.4;
+
+}
+
+.content:hover #left-key
+{
+    opacity: 0.4;
+
+}
+
+#right-key
+{
+    display: block;
+    position: absolute;
+    width: 2.7em;
+    bottom: 3em;
+    right: 2em;
+    opacity: 0.0;
+    transition:2s;
+
+}
+
+#left-key
+{
+    display: block;
+    position: absolute;
+    width: 2.7em;
+    bottom: 3em;
+    right: 5.5em;
+    opacity: 0.0;
+    transition:2s;
+
+}
+
+#key-info
+{
+    display: block;
+    position: absolute;
+    bottom: 3em;
+    right: 10em;
+    opacity: 0.0;
+    transition:3s;
+}
+
+.content:hover #key-info
+{
+    opacity: 0.4;
+
+}
+}
+
+@media only screen and (max-height: 700px){
+    .contact-container
+    {
+        font-size: 1.7vh;
+        /* max-height: 50vw; */
+    }
+
+    .resume-container
+    {
+        max-height: 80vh;
+    }
+
+    .square
+    {
+        max-height: 25vh;
+    }
+
+    .square-photo
+    {
+        max-height: 25vh;
+    }
+}

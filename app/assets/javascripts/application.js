@@ -455,6 +455,49 @@ $(document).on('turbolinks:load', function () {
     {
         toggleControls()
     }
+    var scroller;
+    $("#arrow-right").hover( 
+        function()
+        {
+            console.log("Right"); 
+            scroller = setInterval( function(){console.log("Here"); $(".content")[0].scrollBy(5, 0)}, 15)
+
+        }, 
+        function(){clearInterval(scroller)}
+    )
+    $("#arrow-left").hover( 
+        function()
+        {
+            console.log("Left"); 
+            scroller = setInterval( function(){console.log("Here"); $(".content")[0].scrollBy(-5, 0)}, 15)
+        }, 
+        function(){clearInterval(scroller) }
+    )
+
+
+    $(document).on('keydown', function(e) {
+        switch(e.which) {
+            case 37: // left
+            console.log("Left")
+            $(".content")[0].scrollBy(-400, 0);
+            break;
+    
+            case 38: // up
+            break;
+    
+            case 39: // right
+            console.log("Right")
+            $(".content")[0].scrollBy(400, 0);
+            break;
+    
+            case 40: // down
+            break;
+    
+            default: return; // exit this handler for other keys
+        }
+        e.preventDefault(); // prevent the default action (scroll / move caret)
+    });
+
 });
 
 

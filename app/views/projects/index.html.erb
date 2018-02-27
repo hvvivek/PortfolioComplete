@@ -1,3 +1,4 @@
+
 <div class="wrapper">
       <!-- Sidebar Start -->
       <nav id="sidebar">
@@ -19,6 +20,11 @@
             <li><%= link_to "About", controller: "projects", action: "contact" %></li>
           </ul>
 
+        </div>
+
+        <div id="arrows">
+          <img src = "https://s3.us-east-2.amazonaws.com/portfolio-vivek/images/icons/left.png" id="arrow-left">
+          <img src = "https://s3.us-east-2.amazonaws.com/portfolio-vivek/images/icons/right.png" id="arrow-right">
         </div>
       </nav>
 
@@ -47,6 +53,9 @@
 
       <!-- Content Start -->
       <div class="content" id="style-3">
+        <p id="key-info">You can use arrow keys to navigate</p>
+        <img id="right-key" src ="https://s3.us-east-2.amazonaws.com/portfolio-vivek/images/icons/right-key.png">
+        <img id="left-key" src ="https://s3.us-east-2.amazonaws.com/portfolio-vivek/images/icons/left-key.png">
         <div class="row1">
 
     <% @projects.each_with_index do |project, index| %>
