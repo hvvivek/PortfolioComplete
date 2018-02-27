@@ -959,7 +959,7 @@ body {
 }
 
 
-@media only screen and (min-height: 630px){
+@media only screen and (min-height: 750px){
 
 .content:hover #right-key
 {
@@ -1019,6 +1019,8 @@ body {
 }
 }
 
+
+
 @media only screen and (max-height: 700px){
     .contact-container
     {
@@ -1040,4 +1042,18 @@ body {
     {
         max-height: 25vh;
     }
-}
+
+    .img-card
+    {
+        max-width: 60vh;
+        max-height: 60vh;
+    }
+
+    .img-container
+    {
+        max-width: 60vh;
+        max-height: 60vh;
+    }
+
+
+}   

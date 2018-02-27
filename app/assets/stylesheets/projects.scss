@@ -634,3 +634,41 @@ label
         padding-bottom: 10px;
     }
 }
+
+
+@media only screen and (max-width: 700px){
+
+    @media only screen and (max-height: 700px){
+
+        .img-card
+        {
+            max-width: 60vh;
+            max-height: 60vh;
+        }
+
+        .img-container
+        {
+            max-width: 60vh;
+            max-height: 60vh;
+            margin-left: calc(200px - 30vh)
+        }
+    } 
+
+}
+
+@media only screen and (max-height: 700px){
+
+    .img-card
+    {
+        max-width: 60vh;
+        max-height: 60vh;
+    }
+
+    .img-container
+    {
+        max-width: 60vh;
+        max-height: 60vh;
+    }
+
+
+}
