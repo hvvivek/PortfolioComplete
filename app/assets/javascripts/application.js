@@ -479,7 +479,7 @@ $(document).on('turbolinks:load', function () {
         switch(e.which) {
             case 37: // left
             console.log("Left")
-            $(".content")[0].scrollBy(-400, 0);
+            $(".content")[0].scrollBy(-500, 0);
             break;
     
             case 38: // up
@@ -487,7 +487,7 @@ $(document).on('turbolinks:load', function () {
     
             case 39: // right
             console.log("Right")
-            $(".content")[0].scrollBy(400, 0);
+            $(".content")[0].scrollBy(500, 0);
             break;
     
             case 40: // down
