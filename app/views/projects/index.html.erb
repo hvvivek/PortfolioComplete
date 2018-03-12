@@ -16,6 +16,7 @@
           <%= content_tag :div, class: "temp_information", data: {temp: Project.tag_counts.map{|x| [x.name, tag_path(x.name)]}} do %>
           <% end %>
           
+          <hr>
           <ul class="sidebar-menu">
             <li><%= link_to "About", controller: "projects", action: "contact" %></li>
           </ul>
@@ -43,7 +44,6 @@
             </div>
           </div>
 
-          
           <ul class="sidebar-menu">
             <li><%= link_to "About", controller: "projects", action: "contact" %></li>
           </ul>

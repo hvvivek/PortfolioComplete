@@ -1,4 +1,4 @@
-<script>loadPDF()</script>
+<%# <script>loadPDF()</script> %>
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
 <div class="wrapper">
@@ -16,9 +16,10 @@
           </a>
           <%= content_tag :div, class: "temp_information", data: {temp: Project.tag_counts.map{|x| [x.name, tag_path(x.name)]}} do %>
           <% end %>
-
+          <hr>
           <ul class="sidebar-menu">
-            <li><%= link_to "About", controller: "projects", action: "contact" %></li>
+            <li><a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/documents/Resume.pdf">Resum&#232</i></a></li>
+
           </ul>
 
         </div>
@@ -60,12 +61,12 @@
             <a href='https://www.facebook.com/ItsreallyVivek'><i class="fab fa-facebook-square"></i></a>
             <a href='https://www.linkedin.com/in/vivek-h-v'><i class="fab fa-linkedin"></i></a>
             <a href='https://github.com/hvvivek'><i class="fab fa-github"></i>  </a>
+
               <p>Hi! I am Vivek HV.</p> <p> Designer. Engineer. Artist. &nbsp Student.  </p>
               <p>Having lived in India all my life, I have observed and experienced the redoubtable change that technology brings to society. For good and bad.<p>
               <p>I am passionate about using technology to change lives for the better. I intend for my portfolio to document this pursuit.</p>
               <p>I am currently part of the second cohort of the Masters in Design Engineering program at Harvard University. Feel free to reach out to me!</p>
               
-            <h4>Resum&#232 <a href="https://s3.us-east-2.amazonaws.com/portfolio-vivek/documents/Resume.pdf"><i class="fas fa-external-link-alt"></i></a></h4>
             </div>
           </div>
         

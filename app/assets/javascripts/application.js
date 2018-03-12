@@ -450,13 +450,14 @@ $(document).on('turbolinks:load', function () {
 
     videos = document.querySelectorAll("video");
     loadVideos();
-    console.log(videos)
     if(window.mobilecheck())
     {
         toggleControls()
     }
+
+
     var scroller;
-    $("#arrow-right").hover( 
+    $("#right-key").hover( 
         function()
         {
             console.log("Right"); 
@@ -465,7 +466,7 @@ $(document).on('turbolinks:load', function () {
         }, 
         function(){clearInterval(scroller)}
     )
-    $("#arrow-left").hover( 
+    $("#left-key").hover( 
         function()
         {
             console.log("Left"); 
@@ -474,20 +475,52 @@ $(document).on('turbolinks:load', function () {
         function(){clearInterval(scroller) }
     )
 
+    var keyScroll;
 
     $(document).on('keydown', function(e) {
         switch(e.which) {
             case 37: // left
-            console.log("Left")
-            $(".content")[0].scrollBy(-500, 0);
+            clearInterval(keyScroll)
+            keyScroll = setInterval( function(){console.log("Here"); $(".content")[0].scrollBy(-5, 0)}, 15)
+            // $(".content")[0].scrollBy(-500, 0);
             break;
     
             case 38: // up
             break;
     
             case 39: // right
-            console.log("Right")
-            $(".content")[0].scrollBy(500, 0);
+            clearInterval(keyScroll)
+            keyScroll = setInterval( function(){console.log("Here"); $(".content")[0].scrollBy(5, 0)}, 15)
+            // $(".content")[0].scrollBy(500, 0);
+            break;
+    
+            case 40: // down
+            break;
+    
+            default: return; // exit this handler for other keys
+        }
+        e.preventDefault(); // prevent the default action (scroll / move caret)
+    });
+
+    $(document).on('keyup', function(e) {
+        switch(e.which) {
+            case 37: // left
+            if(keyScroll)
+            {
+                clearInterval(keyScroll)
+            }
+            // $(".content")[0].scrollBy(-500, 0);
+            break;
+    
+            case 38: // up
+            break;
+    
+            case 39: // right
+            if(keyScroll)
+            {
+                clearInterval(keyScroll)
+            }
+            // $(".content")[0].scrollBy(500, 0);
             break;
     
             case 40: // down
@@ -526,7 +559,7 @@ function toggleControls() {
   }
 
   
-PDFJS.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+// PDFJS.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
 
 var loadPDF = function()
 {
