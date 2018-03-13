@@ -62,7 +62,7 @@ var changeToNext = function()
         $('.tag_type')[1].innerHTML = ""
         $('.tag_type')[0].href = nextTag[1]
         $('.tag_type')[1].href = nextTag[1]
-        console.log(nextTag);
+        // console.log(nextTag);
         i=0;
         txt = "#"+ nextTag[0]
         typeWriter()
@@ -113,7 +113,7 @@ var changeToNext2 = function()
 }
 
 var hoverFunctionStart = function(e) {
-    console.log("Identifyying changes");
+    // console.log("Identifyying changes");
     if (!timeoutId) {
         currentImage = this;
 
@@ -152,7 +152,7 @@ var clickFunctionVideo = function(e) {
     $(currentVideo).css("display", "none");
     $( ".img-card[toggle='" + $(currentVideo).attr('target') + "']" ).css("display", "block");  
 }
-console.log("Outside")
+// console.log("Outside")
 
 
 function nextInDOM(_selector, _subject) {
@@ -189,7 +189,7 @@ function format_media_type_inputs(e)
 
         switch(media_type) {
             case "Video":
-                console.log('Video Chosen')
+                // console.log('Video Chosen')
                 $($(e).parent().parent().parent()[0]).find('.vid').css({'display':'block'})
                 $($(e).parent().parent().parent()[0]).find('.no-vid').css({'display':'none'})
                 var vid_link = $($(e).parent().parent().parent()[0]).find('.src-link')[0].value
@@ -202,7 +202,7 @@ function format_media_type_inputs(e)
                 $($(e).parent().parent().parent()[0]).find('.no-img').css({'display':'none'})
                 var img_link = $($(e).parent().parent().parent()[0]).find('.src-link')[0].value
                 var html = '<img class="col-10 offset-1"  src="' + img_link +'" onerror="this.onerror=null;this.src="https://s3.us-east-2.amazonaws.com/portfolio-vivek/images/icons/alt.jpg"/>'
-                console.log($($(e).parent().parent().parent()[0]).find('.preview')[0])
+                // console.log($($(e).parent().parent().parent()[0]).find('.preview')[0])
                 $($(e).parent().parent().parent()[0]).find('.preview')[0].innerHTML = html;
                 break;
             case "Text":
@@ -216,7 +216,7 @@ function format_media_type_inputs(e)
 
 function load_media(e)
 {
-    console.log($($(e).parent().parent()[0]).find('.mediatype_select')[0])
+    // console.log($($(e).parent().parent()[0]).find('.mediatype_select')[0])
     format_media_type_inputs($($(e).parent().parent()[0]).find('.mediatype_select')[0]);
 }
 
@@ -264,7 +264,7 @@ $(document).on('turbolinks:load', function () {
     }
 
     $('.mediatype_select').on('change', function(){
-        console.log(this.value);
+        // console.log(this.value);
         format_media_type_inputs(this)
         
     })
@@ -293,7 +293,7 @@ $(document).on('turbolinks:load', function () {
     // });
     $('.card').off('mouseleave');
     $('.card').on('mouseleave', function () {
-        console.log("Stopping");
+        // console.log("Stopping");
         $(this).find('.vid-card').css("display", "none");
         $(this).find('.vid-card')[0].pause();
         $(this).find('.vid-card')[0].currentTime = 0;
@@ -305,8 +305,8 @@ $(document).on('turbolinks:load', function () {
     var mq = window.matchMedia('@media screen and (max-width: 700px)');
     var mq2 = window.matchMedia('(max-width: 700px)');
     var mq3 = window.matchMedia('(max-height: 600px)');
-    console.log(window.mobilecheck())
-    console.log(mq2.matches)
+    // console.log(window.mobilecheck())
+    // console.log(mq2.matches)
 
     if(!window.mobilecheck() && !(mq2.matches || mq3.matches))
     {
@@ -335,17 +335,17 @@ $(document).on('turbolinks:load', function () {
     }        
 
     mq2.addListener(function(changed) {
-        console.log(changed)
+        // console.log(changed)
 
         if(changed.matches) {
-            console.log("Changed to Less than 700px")
+            // console.log("Changed to Less than 700px")
             $(".img-card").unbind('hover mouseenter mouseleave');
             
                 $(".content").off('wheel')
     
         } else {
             // the width of browser is less then 700px
-            console.log("Changed to More than 700px")
+            // console.log("Changed to More than 700px")
             $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
             
                 // $(".content").on('wheel', function(event, delta) {
@@ -372,17 +372,17 @@ $(document).on('turbolinks:load', function () {
     });
 
     mq3.addListener(function(changed) {
-        console.log(changed)
+        // console.log(changed)
 
         if(changed.matches) {
-            console.log("Changed to Less than 700px")
+            // console.log("Changed to Less than 700px")
             $(".img-card").unbind('hover mouseenter mouseleave');
             
                 $(".content").off('wheel')
     
         } else {
             // the width of browser is less then 700px
-            console.log("Changed to More than 700px")
+            // console.log("Changed to More than 700px")
             // $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
             
             //     $(".content").on('wheel', function(event, delta) {
@@ -412,35 +412,35 @@ $(document).on('turbolinks:load', function () {
     if(window.mobilecheck())
     {
         if(mq.matches ) {
-            console.log("More than 700px")
+            // console.log("More than 700px")
             $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
         
             
         } else {
-            console.log("Less than 700px")
+            // console.log("Less than 700px")
             $(".img-card").unbind('hover mouseenter mouseleave');
         }
     
     
         mq2.addListener(function(changed) {
-            console.log(changed)
+            // console.log(changed)
             if(changed.matches) {
-                console.log("Changed to Less than 700px")
+                // console.log("Changed to Less than 700px")
                 $(".img-card").unbind('hover mouseenter mouseleave'); 
             } else {
-                console.log("Changed to More than 700px")
+                // console.log("Changed to More than 700px")
                 $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
         
             }
         });
 
         mq3.addListener(function(changed) {
-            console.log(changed)
+            // console.log(changed)
             if(changed.matches) {
-                console.log("Changed to Less than 700px")
+                // console.log("Changed to Less than 700px")
                 $(".img-card").unbind('hover mouseenter mouseleave'); 
             } else {
-                console.log("Changed to More than 700px")
+                // console.log("Changed to More than 700px")
                 $(".wrapper-rhs").hover(hoverFunctionStart, hoverFunctionEnd);
         
             }
@@ -460,8 +460,10 @@ $(document).on('turbolinks:load', function () {
     $("#right-key").hover( 
         function()
         {
-            console.log("Right"); 
-            scroller = setInterval( function(){console.log("Here"); $(".content")[0].scrollBy(5, 0)}, 15)
+            // console.log("Right"); 
+            scroller = setInterval( function(){
+                // console.log("Here"); 
+                $(".content")[0].scrollBy(5, 0)}, 15)
 
         }, 
         function(){clearInterval(scroller)}
@@ -469,8 +471,10 @@ $(document).on('turbolinks:load', function () {
     $("#left-key").hover( 
         function()
         {
-            console.log("Left"); 
-            scroller = setInterval( function(){console.log("Here"); $(".content")[0].scrollBy(-5, 0)}, 15)
+            // console.log("Left"); 
+            scroller = setInterval( function(){
+                // console.log("Here"); 
+                $(".content")[0].scrollBy(-5, 0)}, 15)
         }, 
         function(){clearInterval(scroller) }
     )
@@ -481,7 +485,9 @@ $(document).on('turbolinks:load', function () {
         switch(e.which) {
             case 37: // left
             clearInterval(keyScroll)
-            keyScroll = setInterval( function(){console.log("Here"); $(".content")[0].scrollBy(-5, 0)}, 15)
+            keyScroll = setInterval( function(){
+                // console.log("Here"); 
+                $(".content")[0].scrollBy(-5, 0)}, 15)
             // $(".content")[0].scrollBy(-500, 0);
             break;
     
@@ -490,7 +496,9 @@ $(document).on('turbolinks:load', function () {
     
             case 39: // right
             clearInterval(keyScroll)
-            keyScroll = setInterval( function(){console.log("Here"); $(".content")[0].scrollBy(5, 0)}, 15)
+            keyScroll = setInterval( function(){
+                // console.log("Here"); 
+                $(".content")[0].scrollBy(5, 0)}, 15)
             // $(".content")[0].scrollBy(500, 0);
             break;
     
@@ -547,7 +555,7 @@ function toggleControls() {
     {
         video = videos[i]
         // video.load()
-        console.log(video)
+        // console.log(video)
 
         if (video.hasAttribute("controls")) {
             video.removeAttribute("controls")   
@@ -578,12 +586,12 @@ var loadPDF = function()
     // Asynchronous download of PDF
     var loadingTask = PDFJS.getDocument(url);
     loadingTask.promise.then(function(pdf) {
-    console.log('PDF loaded');
+    // console.log('PDF loaded');
     
     // Fetch the first page
     var pageNumber = 1;
     pdf.getPage(pageNumber).then(function(page) {
-        console.log('Page loaded');
+        // console.log('Page loaded');
         
         var scale = 1.5;
         var viewport = page.getViewport(scale);
@@ -601,7 +609,7 @@ var loadPDF = function()
         };
         var renderTask = page.render(renderContext);
         renderTask.then(function () {
-        console.log('Page rendered');
+        // console.log('Page rendered');
         });
     });
     }, function (reason) {
@@ -616,14 +624,14 @@ setInterval(changeToNext, 3000)
 function hideThis(e)
 {
     $(e).css({"display":"none"})
-    console.log($(e).parent().find("video"))
+    // console.log($(e).parent().find("video"))
     $(e).parent().find("video").css({"display":"inline"})
 }
 
 function hideVideo(e)
 {
     $(e).css({"display":"none"})
-    console.log($(e).parent().find("video"))
+    // console.log($(e).parent().find("video"))
     $(e).parent().find("img").css({"display":"inline"})
 }
 
