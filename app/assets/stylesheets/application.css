@@ -1235,28 +1235,58 @@ body {
 
     }
 
-    .square, .square-photo
-    {
-        width: 28vw;
-        min-height: 28vw;
-    }
-    .square img, .square-photo img
-    {
-        width: 28vw;
-        height: 28vw;
-    }
+    
 
     .contact-container
     {
         font-size: 1.7vmax;
     }
 
-    @media screen and (max-width: 1000) {
+    @media screen and (max-width: 1000px) {
         .resume-container
         {
-            float: none;
+            float: left;
+        }
+        .contact-container
+        {
+            font-size: 1.7vmax;
+        }
+
+        .square, .square-photo
+        {
+            width: 28vw;
+            min-height: 28vw;
+        }
+        .square img, .square-photo img
+        {
+            width: 28vw;
+            height: 28vw;
         }
     }
+
+    @media screen and (max-height: 600px) {
+        .resume-container
+        {
+            float: left;
+        }
+        .contact-container
+        {
+            font-size: 1.7vmax;
+        }
+
+        .square, .square-photo
+        {
+            width: 28vw;
+            min-height: 28vw;
+        }
+        .square img, .square-photo img
+        {
+            width: 28vw;
+            height: 28vw;
+        }
+    }
+
+    
     .resume-container
     {
         float: none;
@@ -1279,8 +1309,8 @@ body {
     } */
     #unsupported-browser
     {
-        padding-left: 25vw;
-        padding-right: 25vw;
+        /* padding-left: 25vw;
+        padding-right: 25vw; */
         display: block;
     }
 
@@ -1344,7 +1374,7 @@ body {
         min-height: 600px;
         margin-top: 5vh;
     }
-    .square, .square-photo
+    /* .square, .square-photo
     {
         width: 28vw;
         min-height: 28vw;
@@ -1353,12 +1383,9 @@ body {
     {
         width: 28vw;
         height: 28vw;
-    }
+    } */
 
-    .contact-container
-    {
-        font-size: 1.7vmax;
-    }
+    
     @media screen and (min-width: 1000) {
 
         #project .img-container
@@ -1374,7 +1401,10 @@ body {
     }
 
     @media screen and (max-height: 700) {
-
+        .contact-container
+        {
+            font-size: 1.7vmax;
+        }
         .row1
         {
             padding-top: 50px;
