@@ -1217,3 +1217,116 @@ body {
     }
 
 }
+
+
+@supports (-ms-accelerator:true) {
+    .content
+    {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}
+
+@supports (-ms-ime-align: auto) {
+    /* *
+    {
+        box-sizing: content-box;
+    } */
+
+    .wrapper
+    {
+        width: 100vw;
+    }
+    .content
+    {
+        width: 100vw;
+        height: unset;
+        overflow: hidden;
+        display: block;
+    }
+    .row1
+    {
+        /* background-color: red; */
+        width: 100vw;
+        height: 100vh;
+        overflow:hidden;
+        overflow-y: scroll;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        padding-right: 0px;
+    }
+
+    #key-info, #right-key, #left-key
+    {
+        display: none;
+    }
+
+    #project .card, #project .card2
+    {
+        width: 25vw;
+        height: unset;
+    }
+
+    #project .card, #project .card2, #project .card3, #project .card4
+    {
+        min-height: 600px;
+    }
+
+
+    /* #project .img-container
+    {
+        width: 20vw;
+        height: 20vw;
+    } */
+    #project .wrapper-rhs
+    {
+        width: 25vw;
+    }
+
+    #project .short-desc, #project .long-desc
+    {
+        width: unset;
+    }
+
+    .resume-container
+    {
+        min-height: 600px;
+        margin-top: 5vh;
+    }
+    .square, .square-photo
+    {
+        width: 28vw;
+        min-height: 28vw;
+    }
+    .square img, .square-photo img
+    {
+        width: 28vw;
+        height: 28vw;
+    }
+
+    .contact-container
+    {
+        font-size: 1.7vmax;
+    }
+    @media screen and (min-width: 1000) {
+
+        #project .img-container
+        {
+            height: 25vmax;
+            width: 25vmax;
+        }
+        #project .img-card,#project .img-card-extra, #project .img-card-extra2
+        {
+            height: 25vmax;
+            width: 25vmax;
+        }
+    }
+
+    @media screen and (max-height: 700) {
+
+        .row1
+        {
+            padding-top: 50px;
+        }   
+    }
+  }
