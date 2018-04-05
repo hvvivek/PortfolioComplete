@@ -27,7 +27,7 @@
 
 #project .card4
 {
-    width: 70vw;
+    // width: 70vw;
     max-width: 1080px;
     height: 600px;
     max-height: 80vh;
@@ -443,80 +443,80 @@ label
 @media only screen and (max-height: 600px){
     .svg-inline--fa.fa-w-16, .svg-inline--fa.fa-w-14
     {
-        width: 7vw;
-        height: 7vw;
-        margin: 2vw;
+        width: 7vmin;
+        height: 7vmin;
+        margin: 2vmin;
     }
     .resume-container
     {
         margin-left: 5vw;
         margin-right: 5vw;
-        max-height: 1000px;
-        max-width: 90vw;
+        max-height: 70vh;
+        overflow-y: auto;
+        max-width: 400px;
         margin-bottom: 5vh;
     }
 
     .resume-container canvas
     {
-        width: 90vw;
+        width: 400px;
         height: auto;
     }
 
     .contact-container
     {
-        width: 90vw;
+        width: 400px;
         height: auto;
     }
 
 .photograph-container
 {
-    width: 90vw;
-    height: 90vw;
+    width: 90vmin;
+    height: auto;
 
 }
 
 .art-container
 {
-    width: 90vw;
-    height: 135vw;
-
+    width: 90vmin;
+    height: auto;
 }
 
 .project-container
 {
-    width: 90vw;
-    height: 135vw;
+    width: 90vmin;
+    height: auto;
 
 }
 
 
 .square
 {
-    width: 44vw;
+    width: 29vmin;
     float: left;
-    margin-right: 1vw;
-    height: 44vw;
+    // margin-right: 1vw;
+    height: 29vmin;
     overflow: hidden;
-    margin-bottom: 1vw;
+    // margin-bottom: 1vw;
 }
 
 .square-photo
 {
-    // width: 30vh;
+    width: 30vmin;
     float: left;
-    height: 30vw;
+    height: 30vmin;
     overflow: hidden;
     margin-bottom: 0.1vw;
 }
 
 .square img
 {
-    width: 44vw;
+    width: 29vmin;
 }
 
 .square-photo img
 {
-    width: 29vw;
+    width: 29vmin;
 }
 
 
@@ -541,22 +541,22 @@ label
     }
     .resume-container
     {
-        margin-left: 5vw;
+        // margin-left: 5vw;
         margin-right: 5vw;
-        max-height: 1000px;
-        max-width: 90vw;
+        max-height: 70vmin;
+        max-width: 600px;
         margin-bottom: 5vh;
     }
 
     .resume-container canvas
     {
-        width: 90vw;
+        width: 600px;
         height: auto;
     }
 
     .contact-container
     {
-        width: 90vw;
+        width: 600px;
         height: auto;
     }
 
@@ -615,16 +615,16 @@ label
 }
 
 
-@media only screen and (max-height: 600px){
+@media only screen and (max-width: 1000px) and (max-height: 600px){
     .img-container
     {
         // height: 70vh;
         // width: 70vh;
-        margin-left: calc(45vw - 35vh)
+        // margin-left: calc(45vw - 35vh)
     }
 
     #project .img-card-extra2 {
-        margin-left: calc(45vw - 40vh)
+        // margin-left: calc(45vw - 40vh)
         
     }
 
@@ -639,7 +639,10 @@ label
 @media only screen and (max-width: 700px){
 
     @media only screen and (max-height: 700px){
-
+        #project .card
+        {
+            height: unset;
+        }
         .img-card
         {
             max-width: 60vh;
@@ -650,7 +653,7 @@ label
         {
             max-width: 60vh;
             max-height: 60vh;
-            margin-left: calc(200px - 30vh)
+            margin-left: 0vw
         }
     } 
 
